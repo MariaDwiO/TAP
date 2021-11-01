@@ -4,29 +4,41 @@
 <div class="row mt-3">
     <div class="col-lg-8">
 
+        @php                     //model
+            $title = !empty($category) ? ' Update'  : ' New '    
+        @endphp
+
         <div class="card">
             <div class="card-body">
-                <div class="card-title text-center">Form Category Jurusan</div>
+                <div class="card-title text-center">
+                    {{ $title }} Category Jurusan
+                </div>
                     <hr>
+                    @include('admin.partials.flash', ['$errors' => $errors])
 
-                    <form>
+                    {{-- mengechek apakah pada form category ada isinya maka akan di ambil dan di simpan --}}
+                        @if (!empty($category))
+                            {!! Form::model($category, ['url' => ['admin/category', $category->id], 'method' => 'PUT']) !!}
+                            {!! Form::hidden('id') !!}
+                        @else
+                            {!! Form::open(['url' => 'admin/category']) !!}
+                        @endif
 
                         <div class="form-group">
-                        <label for="input-1">Name Jurusan Product</label>
-                        <input type="text" class="form-control" id="input-1" placeholder="Enter Your Name Jurusan">
+                            {!! Form::label('name', 'Name Jurusan Product') !!}
+                            {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Enter Your Name Jurusan']) !!}   
                         </div>
 
                         {{-- button untuk save product dan kembali ke table --}}
                         <div class="form-group">
-                        <a type="button" href="{{ url('admin/category')}}" class="btn btn-light px-5 mt-auto"><i class="zmdi zmdi-arrow-left"></i> Back</a>
-                        <button type="submit" class="btn btn-light px-5 mt-auto"><i class="zmdi zmdi-file"></i> Save</button>
+                            <a type="button" href="{{ url('admin/category')}}" class="btn btn-light px-5 mt-auto"><i class="zmdi zmdi-arrow-left"></i> Back</a>
+                            <button type="submit" class="btn btn-light px-5 mt-auto"><i class="zmdi zmdi-file"></i> Save</button>
                         </div>
 
-                    </form>
-            
-                </div>
+                    {!! Form::close() !!}
             </div>
         </div>
+
     </div>
 </div><!--End Row-->
 

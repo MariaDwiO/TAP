@@ -49,14 +49,17 @@
                         </a>
                     </li>
 
-                    {{-- <li class="dropdown-item">
-                        <a href="{{ url('logout')}}">
-                            <i class="icon-power mr-2"></i> <span>Logout</span>
+                    <li class="dropdown-item">
+                        <a class="icon-power mr-2" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Log Out') }}
                         </a>
-                    </li> --}}
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                        </form>
+                    </li>
 
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
                 </ul>
             </li>
         </ul>

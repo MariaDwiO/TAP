@@ -10,35 +10,53 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title text-center">Products</h5>
-			        <div class="table-responsive">
-                        
+			            @include('admin.partials.flash')
+
+                    <div class="table-responsive">
                         <table class="table table-striped">
+                            
                             <thead>
                                 <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Name Pembuat</th>
-                                <th scope="col">Name Product</th>
-                                <th scope="col">Image Product</th>
-                                <th scope="col">Jurusan product</th>
-                                <th scope="col">Action</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Name Pembuat</th>
+                                    <th scope="col">Name Product</th>
+                                    <th scope="col">Jurusan product</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
-
-                            {{-- looping nomer --}}
-                            @php $no= 1; @endphp
                             
                             <tbody>
+                                @forelse ($products as $no => $produk)
+                                    
                                 <tr>
-                                <th>{{$no++}}</th>
-                                <td>Andari Dira</td>
-                                <td>Batik</td>
-                                <td>Image Batik</td>
-                                <td>Busana Batik</td>
-                                <td>Edit Delete</td>
+                                    <td>{{ $no  + $products->firstItem()}}</td>
+                                    <td>{{ $produk->name_siswa }}</td>
+                                    <td>{{ $produk->name }}</td>
+                                    <td>{{ $produk->kategori}}</td>
+                                    <td>
+
+                                        <a href="{{'url'('admin/products/'.$produk->id.'/edit') }}" 
+                                            class="btn btn-warning btn-sm">Edit</a>
+                            
+                                        {!! Form::open(['url' => 'admin/products/'. $produk->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
+                                        {!! Form::hidden('_method', 'DELETE') !!}
+                                        {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
+                                        {!! Form::close() !!}
+
+                                    </td>
                                 </tr>
+
+                                @empty
                                 <tr>
+                                    <td colspan="5">No Records Found</td>
+                                </tr>
+
+                                @endforelse
                             </tbody>
                         </table>
+
+                        <br>
+                        {{ $category->links('vendor.pagination.custom')}}
                     </div>
 
                     {{-- button add untuk menambah product --}}
@@ -47,10 +65,7 @@
                     </div>
 
                 </div>
-            </div>
-
-            
-            
+            </div>            
         </div>
     </div>
 </div>

@@ -177,6 +177,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        Collective\Html\HtmlServiceProvider::class,
     ],
 
     /*
@@ -231,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Form' => Collective\Html\FormFacde::class,
+        'Html' => Collective\Html\HtmlFacde::class,
     ],
 
 ];

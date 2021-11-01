@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +18,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        $this->data['category'] = Category::orderBy('name', 'ASC')->paginate(5);
+        return view('admin.category.index', $this->data);
     }
 
     /**
@@ -24,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.form');
+        return view('admin.category.form', $this->data);
     }
 
     /**
@@ -33,9 +38,17 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $params = $request->except('_token');
+        $params['slug'] = Str::slug($params['name']);
+        $params['parent_id'] = 0;
+
+        if(Category::create($params)){
+        Session::flash('Success','Category Jurusan has been saved');
+        }
+
+        return redirect('admin/category');
     }
 
     /**
@@ -55,9 +68,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit( $id)
+    {   
+        $category = Category::findorfail($id);
+        $this->data['category'] = $category;
+
+        return view('admin.category.form', $this->data);
     }
 
     /**
@@ -67,9 +83,18 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        //
+        $params = $request->except('_token');
+        $params['slug'] = Str::slug($params['name']);
+        $params['parent_id'] = 0;
+        $category = Category::findOrFail($id);
+
+        if ($category->update($params)) {
+            Session::flash('Success', 'Category Jurusan has been update');
+        }
+
+        return redirect('admin/category');
     }
 
     /**
@@ -80,6 +105,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category  = Category::findOrFail($id);
+
+        if ($category->delete()) {
+            Session::flash('success', 'Category has been deleted');
+        }
+        return redirect('admin/category');
+
     }
 }
