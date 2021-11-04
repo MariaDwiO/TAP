@@ -6,12 +6,12 @@
         <div class="card profile-card-2">
             
             <div class="card-img-block">
-                <img class="img-fluid" src="https://via.placeholder.com/800x500" alt="Card image cap">
+                <img class="img-fluid" src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" alt="Card image cap">
             </div>
 
             <div class="card-body pt-5">
-                <img src="https://via.placeholder.com/110x110" alt="profile-image" class="profile">
-                <h5 class="card-title">Mark Stern</h5>
+                <img src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" alt="profile-image" class="profile">
+                <h5 class="card-title">{{ Auth::user()->name }}</h5>
                 <p class="card-text">Admin</p>
             </div>
 
@@ -24,56 +24,64 @@
                 
                 <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
                     <li class="nav-item">
-                        <a href="javascript:void();" data-target="#edit" data-toggle="collapse" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit Profile</span></a>
+                        <a href="" data-target="#edit" data-toggle="collapse" class="nav-link">
+                            <i class="icon-note"></i> <span class="hidden-xs">Edit Profile</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:void();" data-target="#template" data-toggle="collapse" class="nav-link"><i class="zmdi zmdi-settings"></i> <span class="hidden-xs">Setting Dashboard</span></a>
+                        <a href="" data-target="#template" data-toggle="collapse" class="nav-link">
+                            <i class="zmdi zmdi-settings"></i> <span class="hidden-xs">Setting Dashboard</span></a>
                     </li>
                 </ul>
                 
                 <div class="tab-content p-3">
                     <div class=" collapse" id="edit">
-                        <form>
+
+                        @include('admin.partials.flash', ['$errors' => $errors])
+
+                        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                            
+                            @csrf
+                            @method('PUT')
                             
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                <label for="name" class="col-lg-3 col-form-label ">Username</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="Mark">
+                                    <input class="form-control" type="text" id="name" name="name" value="{{ Auth::user()->name }}">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                <label for="email" class="col-lg-3 col-form-label">Email</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="email" value="mark@example.com">
+                                    <input class="form-control" type="email" id="email" name="email" value="{{ Auth::user()->email }}">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                <label  for="password" class="col-lg-3 col-form-label ">Password</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="password" value="11111122333">
+                                    <input class="form-control" type="password" id="password" name="password" value="{{ Auth::user()->password }}" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="telephone" class="col-lg-3 col-form-label ">Contact</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" id="telephone" name="telephone" value="{{ Auth::user()->telephone }}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                                <label for="coverImage" class="col-lg-3 col-form-label ">Change profile</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="file">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Contact</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="" placeholder="Contact">
+                                    <input class="form-control" type="file" id="coverImage" name="image" value="{{ Auth::user()->profile_photo_path }}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                 <div class="col-lg-9">
-                                    <input type="button" class="btn btn-primary" value="Save Changes">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
                                 </div>
                             </div>
                             
@@ -84,10 +92,10 @@
                 <div class="tab-content  p-3">
                     <div class="collapse" id="template">
                         <div class="switcher-icon">
-                            <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
+                            <i class="zmdi zmdi-settings "></i>
                         </div>	
 
-                        <p class="mb-0 responsive">Gaussion Texture</p>
+                        <p class="mb-0">Gaussion Texture</p>
                         <hr>
                         
                         <ul class="switcher">

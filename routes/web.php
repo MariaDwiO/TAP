@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,14 @@ Route::get('/', function () {
 Route::group(
     ['middleware' => 'auth:sanctum', 'prefix' => 'admin'],
     function () {
+    
+    Route::resource('dashboard', DashboardController::class); 
     Route::resource('products', ProductController::class); 
     Route::resource('category', CategoryController::class); 
+    
     Route::resource('profile', ProfileController::class); 
+    Route::GET('profile', [ProfileController::class, 'edit']); 
+    Route::PUT('profile', [ProfileController::class, 'update'])->name('profile.update'); 
     
 });
 

@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        
+        App\Providers\GeneralServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
     ],
@@ -234,6 +236,8 @@ return [
 
         'Form' => Collective\Html\FormFacde::class,
         'Html' => Collective\Html\HtmlFacde::class,
+        'General' => App\Helpers\General::class,
+
     ],
 
 ];

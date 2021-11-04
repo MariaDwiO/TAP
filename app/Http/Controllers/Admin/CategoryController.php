@@ -108,7 +108,7 @@ class CategoryController extends Controller
         $category  = Category::findOrFail($id);
 
         if ($category->delete()) {
-            Session::flash('success', 'Category has been deleted');
+            Session::flash('success', 'Category Jurusan has been deleted');
         }
         return redirect('admin/category');
 

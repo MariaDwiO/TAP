@@ -50,8 +50,9 @@
                 </div>
 
                 <div class="form-group">
-                  {!! Form::label('category', 'Category Jurusan Product') !!}
-                  {!! Form::select('category', $category, null, ['class' => 'form-control', 'placeholder'=>'Choose Category Jurusan Product']) !!}
+                  {!! Form::label('jurusan', 'Category Jurusan Product') !!}
+                  {!! General::selectMultiLevel('jurusan', $categories, ['class' => 'form-control', 'selected' =>!empty(old('category_IDs'))? old ('category_IDs'):$categoryIDs,
+                  'placeholder'=>'-Choose Category Jurusan Product-']) !!}
                 </div>
 
                 <div class="form-group">

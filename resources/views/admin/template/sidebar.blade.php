@@ -8,7 +8,7 @@
     </div>
 
         <ul class="sidebar-menu do-nicescrol">
-            <li class="sidebar-header">MAIN NAVIGATION</li>
+            <li class="sidebar-header">MENU</li>
                 
             <li>
                 <a href="{{ url('admin/dashboard')}}">

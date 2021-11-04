@@ -5,12 +5,17 @@
     <div class="row">
         <div class="col-lg-11">
             
-            <br><br>
+            {!! Form::open(['url' => Request::path(), 'method'=> 'GET', 'class'=> 'input-daterange'] ) !!}
+                <div class="md-3 m-sm-3"> 
+                    <input type="text" class="form-control" placeholder="Enter keywords">
+                </div>
+            {!! Form::close() !!}
 
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title text-center">Products</h5>
-			            @include('admin.partials.flash')
+			        
+                    @include('admin.partials.flash')
 
                     <div class="table-responsive">
                         <table class="table table-striped">
@@ -56,7 +61,7 @@
                         </table>
 
                         <br>
-                        {{ $category->links('vendor.pagination.custom')}}
+                        {{ $products->links('vendor.pagination.custom')}}
                     </div>
 
                     {{-- button add untuk menambah product --}}
