@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-11">
+        <div class="col-lg-12">
             
             {!! Form::open(['url' => Request::path(), 'method'=> 'GET', 'class'=> 'input-daterange'] ) !!}
                 <div class="md-3 m-sm-3"> 
@@ -26,6 +26,7 @@
                                     <th scope="col">Name Pembuat</th>
                                     <th scope="col">Name Product</th>
                                     <th scope="col">Jurusan product</th>
+                                    <th scope="col">Image product</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -37,7 +38,8 @@
                                     <td>{{ $no  + $products->firstItem()}}</td>
                                     <td>{{ $produk->name_siswa }}</td>
                                     <td>{{ $produk->name }}</td>
-                                    <td>{{ $produk->kategori}}</td>
+                                    <td>{{ $produk->first()->jurusan}}</td>
+                                    <td><img src="{{ asset('storage/'.$produk->image) }}" style="width:35px"/></td>
                                     <td>
 
                                         <a href="{{'url'('admin/products/'.$produk->id.'/edit') }}" 

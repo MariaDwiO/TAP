@@ -14,16 +14,21 @@ class Product extends Model
         'telephone',
         'name',
         'slug',
-        'prince',
+        'price',
         'pengerjaan',
         'kategori',
-        'image_product',
+        'image',
         'description',
     ];
 
     public function categories()
     {
         return $this->belongsToMany('App\Models\Category', 'product_categories');
+    }
+
+    public function siswa()
+    {
+        return $this->hasMany('App\Models\Siswa');
     }
 
 }

@@ -12,11 +12,7 @@
         </ul>
     
         <ul class="navbar-nav align-items-center right-nav-link">
-            <li class="nav-item dropdown-lg">
-                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="">
-                <i class="fa fa-bell-o"></i></a>
-            </li>
-
+            
             <li class="nav-item">
                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="">
                     <span class="user-profile"><img src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" class="img-circle" alt="user avatar"></span>

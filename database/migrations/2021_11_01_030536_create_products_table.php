@@ -19,10 +19,10 @@ class CreateProductsTable extends Migration
             $table->string('telephone')->nullable();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
-            $table->string('prince')->nullable();
+            $table->string('price')->nullable();
             $table->string('pengerjaan')->nullable();
             $table->string('kategori')->nullable();
-            $table->string('image_product')->nullable();
+            $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

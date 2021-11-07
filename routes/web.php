@@ -26,13 +26,14 @@ Route::group(
     function () {
     
     Route::resource('dashboard', DashboardController::class); 
-    Route::resource('products', ProductController::class); 
     Route::resource('category', CategoryController::class); 
     
     Route::resource('profile', ProfileController::class); 
     Route::GET('profile', [ProfileController::class, 'edit']); 
-    Route::PUT('profile', [ProfileController::class, 'update'])->name('profile.update'); 
+    Route::PUT('profile', [ProfileController::class, 'update'])->name('profile.update');
     
+    Route::resource('products', ProductController::class); 
+
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
