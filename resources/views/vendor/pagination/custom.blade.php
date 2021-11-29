@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
 <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content">
+    <ul class="pagination justify-content justify-content-center">
 
         @if ($paginator->onFirstPage())
             <li class="page-item disabled">

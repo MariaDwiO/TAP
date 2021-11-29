@@ -13,6 +13,11 @@ class Category extends Model
         'slug',
         'parent_id',
     ];
+    
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product', 'product_categories');
+    }
 
     public function childs()
     {
@@ -42,12 +47,6 @@ class Category extends Model
         }
 
         return $childIds;
-    }
-
-
-    public function products()
-    {
-        return $this->belongsToMany('App\Models\Product', 'product_categories');
     }
 
 }

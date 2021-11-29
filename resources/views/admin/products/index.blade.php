@@ -5,9 +5,9 @@
     <div class="row">
         <div class="col-lg-12">
             
-            {!! Form::open(['url' => Request::path(), 'method'=> 'GET', 'class'=> 'input-daterange'] ) !!}
+            {!! Form::open(['url' => Request::path(), 'method'=> 'GET', 'class'=> 'input-grup'] ) !!}
                 <div class="md-3 m-sm-3"> 
-                    <input type="text" class="form-control" placeholder="Enter keywords">
+                    <input type="text" class="form-control" id='search' name="search" value="{{ request('search') }}" placeholder="Enter keywords">
                 </div>
             {!! Form::close() !!}
 
@@ -38,7 +38,7 @@
                                     <td>{{ $no  + $products->firstItem()}}</td>
                                     <td>{{ $produk->name_siswa }}</td>
                                     <td>{{ $produk->name }}</td>
-                                    <td>{{ $produk->first()->jurusan}}</td>
+                                    <td>{{ $produk->name }}</td>
                                     <td><img src="{{ asset('storage/'.$produk->image) }}" style="width:35px"/></td>
                                     <td>
 

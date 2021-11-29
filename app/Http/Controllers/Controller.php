@@ -11,4 +11,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     protected $data =[];
+
+    protected function load_Theme($view, $data = [])
+    {
+        return view('themes/' . env('APP_THEME') . '/' . $view, $data);
+    }
+
 }

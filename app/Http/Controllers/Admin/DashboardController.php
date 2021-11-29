@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
 
 class DashboardController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.index');
+        $products = Product::orderBy('created_at', 'ASC')->latest()->paginate(3);
+
+        return view('admin.dashboard.index', compact('products'));
     }
 
     /**
@@ -44,9 +49,11 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // $products = Product::orderBy('created_at', 'ASC')->latest()->paginate(3);
+
+        // return view('admin.dashboard.index', compact('products'));
     }
 
     /**

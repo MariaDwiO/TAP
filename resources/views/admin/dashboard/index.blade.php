@@ -6,21 +6,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WELCOME</title>
 </head>
+
 <body>
+    <center><h5>WELCOME SUPER ADMIN</h5></center>
+
     <div class="container">
         <div class="col-lg-12">
-            <div class="row">
-                <br><br> WELCOME SUPER ADMIN <br><br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptatibus perferendis eaque quis non animi repellendus modi neque, eveniet suscipit fugit quae odio itaque culpa, sit accusamus dignissimos nostrum deleniti.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quae ullam facilis assumenda nam, culpa tempore! Saepe nostrum voluptate laudantium dignissimos ab quae! Fugiat doloribus nostrum quos! Doloremque, nostrum dolorum?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quos voluptatem odio illum voluptate, dolor eaque animi ea nostrum nulla, corporis fugiat. Praesentium repellat nesciunt voluptatum inventore facere, vitae velit.
-                </p>
-            </div>
+            <div class="row">                            
+
+            @forelse ($products as $produk)
+
+                <div class="col d-flex">
+                    <div class="card-deck text-dark bg-light" style="max-width: 15rem;">
+                        <img src="{{ asset('storage/'.$produk->image) }}" class="card-img-top" alt="image" style="width:100%">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $produk->name }}</h5>
+                            <h5 class="card-title">{{ $produk->price }}</h5>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-dark">{{ $produk->tgl() }}</small>
+                        </div>
+                    </div>
+                </div>
+
+            @empty
+                <tr>
+                    <p>Product tidak ada</p>
+                </tr>
+            @endforelse
+
         </div>
     </div>
+
+    {{ $products->links('vendor.pagination.custom')}}
+
 </body>
+
 </html>
 
 @endsection

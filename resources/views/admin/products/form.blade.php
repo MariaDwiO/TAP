@@ -12,7 +12,7 @@
         <div class="card-body">
 
           <div class="card-title text-center"><h2>{{ $title }} Product</h2></div>
-            @include('admin.template.flash', ['$errors' => $errors])
+            @include('admin.partials.flash', ['$errors' => $errors])
             
             <hr>
             <link rel="stylesheet" type="text/css" href="{!! URL::asset('template/assets/style.css') !!}">
@@ -57,7 +57,7 @@
 
                 <div class="form-group">
                   {!! Form::label('image', 'Image Product') !!}
-                  {!! Form::file('image', ['class' => 'form-control-file']) !!}
+                  {!! Form::file('image', ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">

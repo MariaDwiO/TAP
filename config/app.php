@@ -180,6 +180,13 @@ return [
         App\Providers\GeneralServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
+
+        App\Providers\AdminRepositoryServiceProvider::class,
+        App\Providers\FrontRepositoryServiceProvider::class,
+
+        Intervention\Image\ImageServiceProvider::class,
+
+        Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*
@@ -237,6 +244,7 @@ return [
         'Form' => Collective\Html\FormFacde::class,
         'Html' => Collective\Html\HtmlFacde::class,
         'General' => App\Helpers\General::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

@@ -7,35 +7,35 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
       <meta name="description" content=""/>
       <meta name="author" content=""/>
-      <title>Dashtreme Admin - Free Dashboard for Bootstrap 4 by Codervent</title>
+      <title> Pamer Produk </title>
       
       <!-- loader-->
-      <link href="{{ URL::asset('template/assets/css/pace.min.css') }}" rel="stylesheet"/>
-      <script src="{{ URL::asset('template/assets/js/pace.min.js') }}"></script>
+      <link href="{{ URL::asset('admin/template/assets/css/pace.min.css') }}" rel="stylesheet"/>
+      <script src="{{ URL::asset('admin/template/assets/js/pace.min.js') }}"></script>
       
       <!--favicon-->
-      <link rel="icon" href="{{ URL::asset('template/assets/images/favicon.ico') }}" type="image/x-icon">
+      <link rel="icon" href="{{ URL::asset('themes/templateproject/asset/image/pp logo 1.png') }}" type="image/x-icon">
       
       <!-- Vector CSS -->
-      <link href="{{ URL::asset('template/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
+      <link href="{{ URL::asset('admin/template/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
       
       <!-- simplebar CSS-->
-      <link href="{{ URL::asset('template/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
+      <link href="{{ URL::asset('admin/template/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
       
       <!-- Bootstrap core CSS-->
-      <link href="{{ URL::asset('template/assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
+      <link href="{{ URL::asset('admin/template/assets/css/bootstrap.min.css') }}" rel="stylesheet"/>
       
       <!-- animate CSS-->
-      <link href="{{ URL::asset('template/assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ URL::asset('admin/template/assets/css/animate.css') }}" rel="stylesheet" type="text/css"/>
       
       <!-- Icons CSS-->
-      <link href="{{ URL::asset('template/assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
+      <link href="{{ URL::asset('admin/template/assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
       
       <!-- Sidebar CSS-->
-      <link href="{{ URL::asset('template/assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
+      <link href="{{ URL::asset('admin/template/assets/css/sidebar-menu.css') }}" rel="stylesheet"/>
       
       <!-- Custom Style-->
-      <link href="{{ URL::asset('template/assets/css/app-style.css') }}" rel="stylesheet"/>
+      <link href="{{ URL::asset('admin/template/assets/css/app-style.css') }}" rel="stylesheet"/>
       
     </head>
 
@@ -71,30 +71,30 @@
     </div><!--End wrapper-->
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ URL::asset('template/assets/js/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('template/assets/js/popper.min.js') }}"></script>
-    <script src="{{ URL::asset('template/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/popper.min.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/bootstrap.min.js') }}"></script>
     
     <!-- simplebar js -->
-    <script src="{{ URL::asset('template/assets/plugins/simplebar/js/simplebar.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/plugins/simplebar/js/simplebar.js') }}"></script>
     
     <!-- sidebar-menu js -->
-    <script src="{{ URL::asset('template/assets/js/sidebar-menu.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/sidebar-menu.js') }}"></script>
     
     <!-- loader scripts -->
-    <script src="{{ URL::asset('template/assets/js/jquery.loading-indicator.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/jquery.loading-indicator.js') }}"></script>
     
     <!-- Custom scripts -->
-    <script src="{{ URL::asset('template/assets/js/app-script.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/app-script.js') }}"></script>
     
     <!-- Chart js -->
-    <script src="{{ URL::asset('template/assets/plugins/Chart.js/Chart.min.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/plugins/Chart.js/Chart.min.js') }}"></script>
   
     <!-- Index js -->
-    <script src="{{ URL::asset('template/assets/js/index.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/js/index.js') }}"></script>
 
     {{-- ckeditor --}}
-    <script src="{{ URL::asset('template/assets/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ URL::asset('admin/template/assets/ckeditor/ckeditor.js') }}"></script>
 
     <script type="text/javascript">
       CKEDITOR.replace('editor-custom', {

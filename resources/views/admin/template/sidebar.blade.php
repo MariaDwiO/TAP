@@ -1,9 +1,9 @@
 <!--Start sidebar-wrapper-->
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
-        <a href="index.html">
-            <img src="{{ URL::asset('template/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
-            <h5 class="logo-text">Dashboard Admin P</h5>
+        <a href="#">
+        <img src="{{ asset('themes/templateproject/asset/image/pp logo 1.png')}}" height="35px" width="35px" alt="">            
+        <h5 class="logo-text m-2"> Pamer Produk </h5>
         </a>
     </div>
 

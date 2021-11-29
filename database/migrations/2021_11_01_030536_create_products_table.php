@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('kategori')->nullable();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

@@ -1,0 +1,737 @@
+/* buat ukuran img */
+/* .width-10 {
+    width: 10px;
+} */
+
+/* .width-30 {
+    width: 30px;
+} */
+
+/* .width-35 {
+    width: 35px;
+}
+
+.width-40 {
+    width: 40px;
+}
+
+.width-50 {
+    width: 50px;
+}
+
+.width-60 {
+    width: 60px;
+}
+
+.width-70 {
+    width: 70px;
+}
+
+.width-80 {
+    width: 80px;
+} */
+
+/* .width-90 {
+    width: 90px;
+}
+
+.width-100 {
+    width: 100px;
+} */
+
+/* .width-110 {
+    width: 110px;
+}
+
+.width-120 {
+    width: 120px;
+}
+
+.width-130 {
+    width: 130px;
+}
+
+.width-140 {
+    width: 140px;
+} */
+
+/* .width-150 {
+    width: 150px;
+}
+
+.width-160 {
+    width: 160px;
+}
+
+.width-170 {
+    width: 170px;
+}
+
+.width-200 {
+    width: 200px;
+}
+
+.width-220 {
+    width: 220px;
+} */
+
+/* .width-250 {
+    width: 250px;
+} */
+
+/* .width-270 {
+    width: 270px;
+} */
+
+/* .width-300 {
+    width: 300px;
+} */
+
+/* .width-400 {
+    width: 400px;
+} */
+
+/* .width-450 {
+    width: 450px;
+} */
+
+/* .width-500 {
+    width: 500px;
+} */
+
+/* .width-550 {
+    width: 550px;
+} */
+
+/* .width-full {
+    width: 100%;
+} */
+
+
+/* Buat Margin Top */
+.mt-51 {
+    margin-top: 5px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-35 {
+    margin-top: 35px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-45 {
+    margin-top: 45px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-55 {
+    margin-top: 55px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-70 {
+    margin-top: 70px;
+}
+
+.mt-80 {
+    margin-top: 80px;
+}
+
+.mt-90 {
+    margin-top: 90px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mt-110 {
+    margin-top: 110px;
+}
+
+.mt-120 {
+    margin-top: 120px;
+}
+
+/* Buat Margin Left */
+.ml-10 {
+    margin-left: 10px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.ml-30 {
+    margin-left: 30px;
+}
+
+.ml-40 {
+    margin-left: 40px;
+}
+
+.ml-50 {
+    margin-left: 50px;
+}
+
+.ml-60 {
+    margin-left: 60px;
+}
+
+.ml-70 {
+    margin-left: 70px;
+}
+
+.ml-80 {
+    margin-left: 80px;
+}
+
+.ml-90 {
+    margin-left: 90px;
+}
+
+.ml-100 {
+    margin-left: 100px;
+}
+
+/* Buat Margin Right */
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.mr-40 {
+    margin-right: 40px;
+}
+
+.mr-50 {
+    margin-right: 50px;
+}
+
+.mr-60 {
+    margin-right: 60px;
+}
+
+.mr-70 {
+    margin-right: 70px;
+}
+
+.mr-80 {
+    margin-right: 80px;
+}
+
+.mr-90 {
+    margin-right: 90px;
+}
+
+.mr-100 {
+    margin-right: 100px;
+}
+
+/* Buat Margin Bottom */
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+}
+
+.mb-80 {
+    margin-bottom: 80px;
+}
+
+.mb-90 {
+    margin-bottom: 90px;
+}
+
+.mb-100 {
+    margin-bottom: 100;
+}
+
+/* Buat Font Warna */
+.f-black {
+    color: black;
+}
+
+.f-white {
+    color: white;
+    font-weight: bold;
+}
+
+.f-red {
+    color: red;
+}
+
+.f-green {
+    color: green;
+}
+
+.f-blue {
+    color: blue;
+}
+
+.f-yellow {
+    color: yellow;
+}
+
+.f-bold {
+    font-weight: bold;
+}
+
+
+
+/* Buat Ukuran font */
+.fs-8 {
+    font-size: 8px;
+}
+
+.fs-10 {
+    font-size: 10px;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.fs-50 {
+    font-size: 50px;
+}
+
+.fs-60 {
+    font-size: 60px;
+}
+
+.fs-70 {
+    font-size: 70px;
+}
+
+.fs-80 {
+    font-size: 80px;
+}
+
+.fs-90 {
+    font-size: 90px;
+}
+
+.fs-100 {
+    font-size: 100px;
+}
+
+.fs-120 {
+    font-size: 120px;
+}
+
+.fs-130 {
+    font-size: 130px;
+}
+
+.fs-140 {
+    font-size: 140px;
+}
+
+.fs-150 {
+    font-size: 150px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    background-color: whitesmoke;
+}
+
+.arah {
+    margin-left: 380px;
+}
+
+.logo12 {
+    margin-right: 100px;
+}
+
+.logo {
+    margin-right: 400px;
+}
+
+.logo1 {
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.logo1:hover {
+    color: rgb(179, 179, 179);
+}
+
+.bg {
+    background-color: #343A40;
+    padding: 50px;
+}
+
+.bg1 {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.bg12 {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.carou {
+    background-color: #343A40;
+    border-radius: 10px;
+    margin-top: 150px;
+}
+
+.heh {
+    margin-top: 100px;
+}
+
+/* img {
+    border-radius: 30px;
+} */
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 1s ease;
+    border-radius: 30px;
+}
+
+.inner:hover img {
+    transform: scale(1.5);
+}
+
+.nom {
+    color: white;
+    font-size: 25px;
+    text-decoration: underline white;
+}
+
+.meja {
+    font-family: 'Lato', sans-serif;
+}
+
+.brd {
+    border-left: 4px solid rgb(175, 173, 173);
+    border-radius: 100px;
+    margin-left: -14px;
+    top: 10px;
+    margin-bottom: 20px;
+}
+
+.back {
+    color: black;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.back:hover {
+    color: black;
+    text-decoration: underline black;
+    font-weight: bold;
+}
+
+.rapi {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.rapi2 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.atas {
+    margin-top: 120px;
+}
+
+.jur {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+.jur:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.atas1 {
+    margin-top: 30px;
+}
+
+.kiri {
+    margin-left: 170px;
+    margin-top: 30px;
+}
+
+.produk {
+    font-weight: bold;
+    color: black;
+}
+
+.produk:hover {
+    color: black;
+    text-decoration: underline black;
+}
+
+@media screen and (max-width: 2000px) {
+    .dd {
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .logo {
+        margin-right: 250px;
+    }
+
+    .logo12 {
+        margin-right: 80px;
+    }
+}
+
+
+@media screen and (max-width: 1225px) {
+    .logo {
+        margin-right: 150px;
+    }
+
+    .logo12 {
+        margin-right: 50px;
+    }
+
+    .dd {
+        margin-left: 0;
+    }
+
+    .arah {
+        margin-left: 320px;
+    }
+
+    .atas1 {
+        margin-top: 30px;
+    }
+
+    .kiri {
+        margin-left: 100px;
+        margin-top: 30px;
+    }
+
+
+}
+
+@media screen and (max-width: 1067px) {
+    .logo12 {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .logo12 {
+        margin-right: 20px;
+    }
+
+    .logo {
+        margin-right: 100px;
+    }
+
+    .atas1 {
+        margin-top: 30px;
+    }
+
+    .kiri {
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .meja {
+        text-align: center;
+    }
+
+    .brd {
+        border: none;
+    }
+
+    img {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .rapi {
+        margin-top: 0;
+    }
+
+    .rapi2 {
+        margin-top: 0;
+    }
+
+    .atas {
+        margin-top: 120px;
+    }
+
+    .heh {
+        margin-top: 0;
+    }
+
+    .arah {
+        margin-left: 0;
+    }
+
+    .logo12 {
+        margin-right: 0px;
+    }
+
+    .logo {
+        margin-right: 0px;
+    }
+
+    .atas1 {
+        margin-top: 30px;
+    }
+
+    .kiri {
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        margin-right: 300px;
+    }
+
+    .carou {
+        margin-top: 100;
+    }
+
+}
+
+@media screen and (max-width: 552px) {
+    .logo12 {
+        margin-right: 0;
+        width: 200px;
+    }
+
+    .carou {
+        margin-top: 100px;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .app {
+        margin-bottom: 10px;
+    }
+
+    .ios {
+        margin-top: 20px;
+    }
+
+    .carou {
+        margin-top: 100px;
+    }
+}
