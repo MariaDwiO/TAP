@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Str;
 
-class TemplatController extends Controller
+class TampilanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,8 +30,8 @@ class TemplatController extends Controller
         }
 
         $this->data['products'] = $products->paginate(20);
-        $this->data['category'] = Category::all();
-        return $this->load_Theme('index', $this->data);
+
+        return $this->load_Theme('index1', $this->data);
     }
 
     /**
@@ -64,9 +64,6 @@ class TemplatController extends Controller
     public function show($slug)
     {
         $this->data['products'] = Product::where('slug', $slug)->firstOrFail();
-
-        // $product = Product::latest();
-
         return $this->load_Theme('show', $this->data);
     }
 
@@ -104,16 +101,14 @@ class TemplatController extends Controller
         //
     }
 
-    public function category($category)
+    public function category(Category $category)
     {
-        var_dump($category);
+        // $this->data['category'] = Category::all()->get();
+        // $this->data['categories'] = Category::pluck('name', 'id');
 
-        // // $this->data['category'] = $category->products()->get();
-        // $this->data['products'] = Product::orderBy('name', 'ASC')->get();
-        // $this->data['products'] = Product::orderBy('name', 'ASC')->get();
+        $categories = $category->products()->get();
 
-
-        // $this->data['category'] = Category::find($id);
-        // return $this->load_Theme('category', $this->data);
+        // return $this->load_Theme('category', compact('categories'));
+        return $categories;
     }
 }

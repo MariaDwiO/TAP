@@ -25,7 +25,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
         <div class="container-fluid">
-            
             <a class="navbar-brand logo" href="{{ url('products') }}">
                 <img src="{{ asset('themes/templateproject/asset/image/pp logo 1.png')}}" height="40px" width="40px" alt="">
             </a>
@@ -35,15 +34,15 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="form-inline my-2 my-lg-0 logo12">
+                <form class="form-inline my-2 my-lg-0 logo12" action="{{ url('products') }}" method="GET">
                     <input style="width: 500px;" class=" form-control mr-sm-2" type="search" placeholder="Cari Produk"
-                        aria-label="Search">
+                        aria-label="Search" name="q" value="{{ isset($q) ? $q : null }}">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cari</button>
                 </form>
-                
+
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li>
                         <a href="{{ url('products') }}">
@@ -56,13 +55,16 @@
                             </svg>
                         </a>
                     </li>
-
+                    
+                    
                     <li class="nav-item dropdown">
                         <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Jurusan
                         </a>
+
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
                             <?php
                             //Membuat koneksi ke database akademik
                             $kon = mysqli_connect("localhost",'root',"","taprakerin");
@@ -78,18 +80,19 @@
                                 while ($data = mysqli_fetch_array($hasil)) {
                                 $no++;
                             ?>
-                                <li> <a class="dropdown-item" href="#" value="<?php echo $data['id'];?>"><?php echo $data['name'];?></a></li>
+                                <li> <a class="dropdown-item" href="{{ route('product-category.category', $data['name']) }}" value="<?php echo $data['id'];?>"><?php echo $data['name'];?></a></li>
                             <?php 
                                 }
                             ?>
+
                         </ul>
                     </li>
-
+                    
                     <li class="nav-item">
                         <a class="nav-link active dd" aria-current="page" href="#contact">Kontak Kami</a>
                     </li>
-
                 </ul>
+
             </div>
 
         </div>
@@ -100,49 +103,45 @@
     <div class="container mt-100">
         <div class="row">
             <div class="col-12 meja">
-                <h1 class="mb-30 f-bold">Animasi</h1>
+                <h1 class="mb-30 f-bold">RPL</h1>
                 <hr>
             </div>
         </div>
     </div>
-
+    
 
     <!-- Card -->
-    <div class="container mt-30">
+    <div class="container mt-50">
         <div class="row">
+
+            @forelse ($products as $produk)
+
             <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
                 <div class="card p-3">
                     <div class="inner">
-                        <a href="#"><img class="img-fluid" src="{{ asset('storage/' .$products->image) }}" alt=""></a>
+                        <a href="{{ url('products/'. $produk->slug) }}">
+                            <img class="img-fluid" src="{{ $produk->image }}" alt=""></a>
                     </div>
                     <div class="container">
                         <hr>
                     </div>
-                    <a class="produk" href="#">
-                        <h3>{{ $products->name }}</h3>
+                    <a class="produk" href="{{ url('products/'. $produk->slug) }}">
+                        <h3>{{ $produk->name }}</h3>
                     </a>
-                    <p>{{ $products->price }}</p>
+                    <p>{{ $produk->price }}</p>
                 </div>
             </div>
 
-            {{-- <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
-                <div class="card p-3">
-                    <div class="inner">
-                        <a href="karakter.html"><img class="img-fluid" src="image/karakter.jpg" alt=""></a>
-                    </div>
-                    <div class="container">
-                        <hr class="mt-70">
-                    </div>
-                    <a class="produk" href="karakter.html">
-                        <h3>Jasa Buat Karakter</h3>
-                    </a>
-                    <p>Harga: Rp 45.000</p>
-                </div>
-            </div> --}}
-            
+                @empty
+                    <tr>
+                        <center><p>Mohon maaf produk tidak ada<p></center>
+                    </tr>
+
+            @endforelse
+
         </div>
     </div>
-    <!-- Penutup Card -->
+    <!-- Card Penutup -->
 
 
     <!-- Rekomendasi -->
@@ -167,36 +166,7 @@
                     <p class="fs-18">Harga: Rp 120.000</p>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
-                <div class="card shadow">
-                    <div class="inner">
-                        <a href="banner.html"><img style="border-radius: 60px;" class="img-fluid p-5" width="99%"
-                                src="image/banner.png" alt=""></a>
-                    </div>
-                    <div class="container">
-                        <hr>
-                    </div>
-                    <a class="produk" href="banner.html">
-                        <h3>Pembuatan Banner</h3>
-                    </a>
-                    <p class="fs-18">Harga: Rp 50.000</p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
-                <div class="card shadow">
-                    <div class="inner">
-                        <a href="lemari.html"><img style="border-radius: 60px;" class="img-fluid p-5" width="80%"
-                                src="image/lemari bagas.jpeg" alt=""></a>
-                    </div>
-                    <div class="container mt-60">
-                        <hr>
-                    </div>
-                    <a class="produk" href="lemari.html">
-                        <h3>Lemari</h3>
-                    </a>
-                    <p>Harga: Rp 350.000</p>
-                </div>
-            </div>
+            
         </div>
     </div>
 
@@ -207,32 +177,44 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-lg-4 text-center mb-50">
-                    <h3 id="contact" class="mb-20 f-white">Kontak Kami</h3>
-                    <a href=""><img src="image/whatsapp-logo-light-green-png-0.png" width="64px" alt=""><span
-                            class="ml-20 nom">081235468975</span></a>
+                    <h3 id="contact" class="mb-20 f-white f-bold">Kontak Kami</h3>
+                    <a href="https://web.whatsapp.com/"><img src="{{ asset('themes/templateproject/asset/image/whatsapp-logo-light-green-png-0.png')}}"
+                            width="64px" alt=""><span class="ml-20 nom">081235468975</span></a>
                 </div>
                 <div class="col-sm-12 col-lg-4 text-center mb-50">
-                    <a class="mr-30" href=""><img src="pp logo 1.png" width="64px" height="64px" alt=""></a>
-                    <a href="https://www.smkn5malang.sch.id/"><img src="image/smk.gif" width="25%" alt=""></a>
+                    <a class="mr-30" href=""><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/pp logo 1.png')}}" width="64px" height="64px"
+                            alt=""></a>
+                    <a href="https://www.smkn5malang.sch.id/"><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/smk.gif')}}" width="25%"
+                            alt=""></a>
                 </div>
                 <div class="col-sm-12 col-lg-4 text-center">
                     <h3 class="mb-20 f-white">Unduh Aplikasi Di</h3>
-                    <a href=""><img class="mr-30" width="128px" src="image/ps.svg" alt=""></a>
-                    <a href=""><img src="image/ios.svg" width="130px" alt=""></a>
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-6 app">
+                            <a href="https://play.google.com"><img class="mr-30" width="128px" src="{{ asset('themes/templateproject/asset/image/ps.svg')}}"
+                                    alt=""></a>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 ios">
+                            <a href="https://www.apple.com"><img src="{{ asset('themes/templateproject/asset/image/ios.svg')}}" width="130px" alt=""></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Footer Penutup -->
 
 </body>
 
 </html>
 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('themes/templateproject/asset/js/bootstrap.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
 </script>
+<script src="{{ asset('themes/templateproject/asset/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{ asset('themes/templateproject/asset/js/slick.min.js')}}"></script>
+<script src="{{ asset('themes/templateproject/asset/js/script.js')}}"></script>

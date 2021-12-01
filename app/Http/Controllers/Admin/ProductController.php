@@ -8,11 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\Category;
-use Intervention\Image\ImageManagerStatic as Image;
-use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -23,17 +20,17 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products= Product::orderBy('name', 'ASC');
-        
+        $products = Product::orderBy('name', 'ASC');
+
         $keyword = $request->search;
         // dd($keyword);
 
         if (request('search')) {
             $products = $products->where('name', 'like', '%' . $keyword . '%')
-            ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
+                ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
         }
-        
-        $this->data['products'] = $products->paginate(8);
+
+        $this->data['products'] = $products->paginate(5);
 
         return view('admin.products.index', $this->data);
     }
@@ -71,7 +68,7 @@ class ProductController extends Controller
             'price' =>  'required',
             'pengerjaan' => 'required',
             'category_IDs' => 'required',
-            'image' => 'required','file','image','mimes:jpeg,png,jpg','max:1024',
+            'image' => 'required', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:1024',
             'description' => 'required',
         ]);
         $validatedata['user_id'] = Auth::user()->id;
@@ -133,16 +130,6 @@ class ProductController extends Controller
         $products = Product::findOrFail($id);
         $categories = Category::orderBy('name', 'ASC')->get();
 
-        if($request->file('image')==" "){
-            $validatedata= $request->validate([
-            'image' => 'required', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:1024'
-            ]);
-
-            $validatedata['image'] = $request->file('image')->store('product-images');
-
-            $products->update($validatedata);
-        }
-
         $this->data['product'] = $products;
         $this->data['categories'] = $categories->toArray();
         $this->data['categoryIDs'] = $products->categories->pluck('id')->toArray();
@@ -161,7 +148,7 @@ class ProductController extends Controller
             Session::flash('Error', 'Product could not be update!');
         }
 
-        return redirect('admin/products')->with('Success','Product berhasil terupdate');
+        return redirect('admin/products')->with('Success', 'Product berhasil terupdate');
     }
 
     /**
@@ -179,5 +166,4 @@ class ProductController extends Controller
         }
         return redirect('admin/products');
     }
-
 }

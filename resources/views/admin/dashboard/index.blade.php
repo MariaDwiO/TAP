@@ -11,7 +11,7 @@
 <body>
     <center><h5>WELCOME SUPER ADMIN</h5></center>
 
-    <div class="container">
+    <div class="container p-3">
         <div class="col-lg-12">
             <div class="row">                            
 
@@ -40,7 +40,9 @@
         </div>
     </div>
 
-    {{ $products->links('vendor.pagination.custom')}}
+    <div class="mt-3">
+        {{ $products->links('vendor.pagination.custom')}}
+    </div>
 
 </body>
 

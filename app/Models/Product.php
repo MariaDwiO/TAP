@@ -32,11 +32,4 @@ class Product extends Model
         return Carbon::parse($this->attributes['created_at'])->translatedFormat(' d F Y H:i ');
     }
 
-    public function scopeActive($query)
-    {
-        return $query->where('status', 1);
-    }
-
-    public const UPLOAD_DIR = 'uploads';
-
 }

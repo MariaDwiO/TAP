@@ -43,38 +43,35 @@
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cari</button>
                 </form>
 
-
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li>
+                        <a href="{{ url('products') }}">
+                            <svg class="logo1" xmlns="http://www.w3.org/2000/svg" width="25"
+                                height="25" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                                <path fill-rule="evenodd"
+                                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                            </svg>
+                        </a>
+                    </li>
+                    
+                    
                     <li class="nav-item dropdown">
                         <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Jurusan
                         </a>
+
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            
-                            <?php
-                            //Membuat koneksi ke database akademik
-                            $kon = mysqli_connect("localhost",'root',"","taprakerin");
-                            if (!$kon){
-                                die("Koneksi database gagal:".mysqli_connect_error());
-                            }
-                                
-                            //Perintah sql untuk menampilkan semua data pada tabel jurusan
-                                $sql="select * from categories";
+                            @foreach ($category as $item)
 
-                                $hasil=mysqli_query($kon,$sql);
-                                $no=0;
-                                while ($data = mysqli_fetch_array($hasil)) {
-                                $no++;
-                            ?>
-                                <li> <a class="dropdown-item" href="#" value="<?php echo $data['id'];?>"><?php echo $data['name'];?></a></li>
-                            <?php 
-                                }
-                            ?>
+                            <li><a class="dropdown-item" href="{{ route('product-category.category', $item->slug) }}">{{ $item->name}}</a></li>
 
+                            @endforeach
                         </ul>
                     </li>
-
+                    
                     <li class="nav-item">
                         <a class="nav-link active dd" aria-current="page" href="#contact">Kontak Kami</a>
                     </li>
@@ -199,7 +196,7 @@
             <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
                 <div class="card shadow">
                     <div class="inner">
-                        <a href="{{ url('products/'. $produk->slug) }}"><img style="border-radius: 60px;" class="img-fluid p-5"  width="98%"
+                        <a href="{{ url('products/'. $produk->slug) }}"><img style="border-radius: 60px;" class="img-fluid p-5"
                                 src="{{ $produk->image}}" alt=""></a>
                     </div>
                     <div class="container">
@@ -362,7 +359,7 @@
 </script>
 <script src="{{ asset('themes/templateproject/asset/js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{ asset('themes/templateproject/asset/js/slick.min.js')}}"></script>
-<script src="{{ asset('themes/templateproject/asset/script.js')}}"></script>
+<script src="{{ asset('themes/templateproject/asset/js/script.js')}}"></script>
 
 <!-- <script>
     window.scrollTo({

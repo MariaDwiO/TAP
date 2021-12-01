@@ -25,9 +25,11 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Name Pembuat</th>
                                     <th scope="col">Name Product</th>
-                                    <th scope="col">Jurusan product</th>
                                     <th scope="col">Image product</th>
+                                    
+                                    @can('edit_products','delete_products')
                                     <th scope="col">Action</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             
@@ -38,18 +40,19 @@
                                     <td>{{ $no  + $products->firstItem()}}</td>
                                     <td>{{ $produk->name_siswa }}</td>
                                     <td>{{ $produk->name }}</td>
-                                    <td>{{ $produk->name }}</td>
                                     <td><img src="{{ asset('storage/'.$produk->image) }}" style="width:35px"/></td>
                                     <td>
-
+                                        @can('edit_products')
                                         <a href="{{'url'('admin/products/'.$produk->id.'/edit') }}" 
                                             class="btn btn-warning btn-sm">Edit</a>
-                            
-                                        {!! Form::open(['url' => 'admin/products/'. $produk->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
-                                        {!! Form::hidden('_method', 'DELETE') !!}
-                                        {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
-                                        {!! Form::close() !!}
+                                        @endcan
 
+                                        @can('delete_products')
+                                            {!! Form::open(['url' => 'admin/products/'. $produk->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
+                                            {!! Form::hidden('_method', 'DELETE') !!}
+                                            {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
+                                            {!! Form::close() !!}
+                                        @endcan
                                     </td>
                                 </tr>
 
@@ -66,10 +69,12 @@
                         {{ $products->links('vendor.pagination.custom')}}
                     </div>
 
+                    @can('add_products')
                     {{-- button add untuk menambah product --}}
-                    <div class="card-footer text-right">
-                        <a href="{{url ('admin/products/create') }}" class="btn btn-primary">Add new</a>
-                    </div>
+                        <div class="card-footer text-right">
+                            <a href="{{url ('admin/products/create') }}" class="btn btn-primary">Add new</a>
+                        </div>
+                    @endcan
 
                 </div>
             </div>            
