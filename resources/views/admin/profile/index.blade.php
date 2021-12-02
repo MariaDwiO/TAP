@@ -12,7 +12,7 @@
             <div class="card-body pt-5">
                 <img src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" alt="profile-image" class="profile">
                 <h5 class="card-title">{{ Auth::user()->name }}</h5>
-                <p class="card-text">Admin</p>
+                <p class="card-text">{{ Auth::user()->email }}</p>
             </div>
 
         </div>

@@ -15,7 +15,7 @@
             
             <li class="nav-item">
                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="">
-                    <span class="user-profile"><img src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" class="img-circle" alt="user avatar"></span>
+                    <span class="user-profile"><img src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" class="img-circle" alt="user avatar" ></span>
                 </a>
         
                 <ul class="dropdown-menu dropdown-menu-right">
@@ -23,7 +23,7 @@
                     <li class="dropdown-item user-details">
                         <a href="">
                             <div class="media">
-                                <div class="avatar"><img class="align-self-start mr-3" src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" alt="user avatar"></div>
+                                <div class="avatar"><img class="align-self-start mr-3" src="{{ asset('images/'. Auth::user()->profile_photo_path) }}" alt="user avatar" ></div>
                                 <div class="media-body">
                                     <h6 class="mt-2 user-title">{{ Auth::user()->name }}</h6>
                                     <p class="user-subtitle">{{ Auth::user()->email }}</p>

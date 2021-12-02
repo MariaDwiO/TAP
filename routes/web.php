@@ -24,9 +24,9 @@ use App\Models\Category;
 |
 */
 
-Route::get('/admin', function () {
-    return view('login');
-});
+// Route::get('/admin', function () {
+//     return view('login');
+// });
 
 Route::get('/', function () {
     $products = Product::orderBy('created_at', 'DESC')->paginate(20);
@@ -58,7 +58,7 @@ Route::group(
     }
 );
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     $products = Product::orderBy('created_at', 'ASC')->latest()->paginate(3);
     return view('admin/dashboard/index', compact('products'));
 })->name('dashboard');
