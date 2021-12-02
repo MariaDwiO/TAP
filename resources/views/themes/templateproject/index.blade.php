@@ -193,25 +193,26 @@
 
             @forelse ($products as $produk)
 
-            <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
-                <div class="card shadow">
-                    <div class="inner">
-                        <a href="{{ url('products/'. $produk->slug) }}"><img style="border-radius: 60px;" class="img-fluid p-5"
-                                src="{{ $produk->image}}" alt=""></a>
+                    <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
+                        <div class="card shadow">
+                            <div class="inner" style="text-align: center; overflow:hidden; padding:0;">
+                                <a href="{{ url('products/'. $produk->slug) }}"><img style="border-radius: 30px; max-height: 200px;" class="img-fluid p-3"
+                                        src="{{ $produk->image}}" alt=""></a>
+                            </div>
+                            <div class="container">
+                                <hr>
+                            </div>
+                            <a class="produk" href="{{ url('products/'. $produk->slug) }}">
+                                <h2 class="">{{ Str::limit($produk->name ,10) }}</h2>
+                            </a>
+                            <p class="fs-18">{{ $produk->price}}</p>
+                        </div>
                     </div>
-                    <div class="container">
-                        <hr>
-                    </div>
-                    <a class="produk" href="{{ url('products/'. $produk->slug) }}">
-                        <h2 class="">{{ Str::limit($produk->name ,10) }}</h2>
-                    </a>
-                    <p class="fs-18">{{ $produk->price}}</p>
-                </div>
-            </div>
+
 
                 @empty
                     <tr>
-                        <p>Mohon maaf produk tidak ada<p>
+                        <center><p>Mohon maaf produk tidak ada<p></center>
                     </tr>
 
             @endforelse

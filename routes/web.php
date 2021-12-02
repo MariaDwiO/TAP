@@ -22,13 +22,13 @@ use App\Models\Product;
 |
 */
 
-// Route::get('/products', function () {
-//     return view('themes\templateproject\index');
-// });
+Route::get('/products', function () {
+    return view('themes/templateproject/index');
+});
 
-Route::get('products', [TemplatController::class, 'index']);
-Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
-Route::get('products/{slug}', [TemplatController::class, 'show']);
+// Route::get('products', [TemplatController::class, 'index']);
+// Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
+// Route::get('products/{slug}', [TemplatController::class, 'show']);
 
 Route::get('products1', [TampilanController::class, 'index']);
 // Route::get('categories/{id}', [TemplatController::class, 'kategori']);

@@ -61,27 +61,28 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedata = $request->validate([
+        $this->validate($request,[
             'name_siswa' => 'required|max:255',
             'telephone' => 'required|max:12',
             'name' => 'required|max:255',
             'price' =>  'required',
             'pengerjaan' => 'required',
-            'category_IDs' => 'required',
             'image' => 'required', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:1024',
             'description' => 'required',
+            'kategori' => 'required',
         ]);
-        $validatedata['user_id'] = Auth::user()->id;
-        $validatedata['slug'] = Str::slug($request['name']);
 
-        if ($request->file('image')) {
-            $validatedata['image'] = $request->file('image')->store('product-images');
-        }
+        $itemuser = $request->user(); //ambil data user yang login
+        $slug = \Str::slug($request->name); //buat slug dari input slug produk
+        $inputan = $request->all();
+        $inputan['slug'] = $slug;
+        $inputan['user_id'] = $itemuser->id;
 
-        Product::create($validatedata);
-
-        return redirect('admin/products')->with('Success', 'New Product has been added');
-    }
+        Product::create($inputan);
+            
+        // Product::create($validatedata);
+    return redirect('admin/products');
+}
 
     /**
      * Display the specified resource.

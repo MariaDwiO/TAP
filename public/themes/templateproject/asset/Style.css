@@ -1,13 +1,13 @@
 /* buat ukuran img */
-/* .width-10 {
+.width-10 {
     width: 10px;
-} */
+} 
 
-/* .width-30 {
+ .width-30 {
     width: 30px;
-} */
+} 
 
-/* .width-35 {
+ .width-35 {
     width: 35px;
 }
 
@@ -29,17 +29,17 @@
 
 .width-80 {
     width: 80px;
-} */
+} 
 
-/* .width-90 {
+ .width-90 {
     width: 90px;
 }
 
 .width-100 {
     width: 100px;
-} */
+} 
 
-/* .width-110 {
+ .width-110 {
     width: 110px;
 }
 
@@ -53,9 +53,9 @@
 
 .width-140 {
     width: 140px;
-} */
+} 
 
-/* .width-150 {
+ .width-150 {
     width: 150px;
 }
 
@@ -73,42 +73,42 @@
 
 .width-220 {
     width: 220px;
-} */
+} 
 
-/* .width-250 {
+ .width-250 {
     width: 250px;
-} */
+} 
 
-/* .width-270 {
+ .width-270 {
     width: 270px;
-} */
+}
 
-/* .width-300 {
+ .width-300 {
     width: 300px;
-} */
+} 
 
-/* .width-400 {
+ .width-400 {
     width: 400px;
-} */
+} 
 
-/* .width-450 {
+ .width-450 {
     width: 450px;
-} */
+} 
 
-/* .width-500 {
+ .width-500 {
     width: 500px;
-} */
+} 
 
-/* .width-550 {
+ .width-550 {
     width: 550px;
-} */
+} 
 
-/* .width-full {
+ .width-full {
     width: 100%;
-} */
+} 
 
 
-/* Buat Margin Top */
+ /* Buat Margin Top */ 
 .mt-51 {
     margin-top: 5px;
 }

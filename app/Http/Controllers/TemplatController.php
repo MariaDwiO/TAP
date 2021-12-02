@@ -19,7 +19,7 @@ class TemplatController extends Controller
     public function index(Request $request)
     {
 
-        $products = Product::orderBy('created_at', 'ASC');
+        $products = Product::orderBy('created_at', 'DESC');
 
         $keyword = $request->q;
         // dd($keyword);
