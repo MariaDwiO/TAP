@@ -11,6 +11,8 @@ use App\Http\Controllers\TemplatController;
 use App\Http\Controllers\TampilanController;
 
 use App\Models\Product;
+use App\Models\Category;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,34 +24,39 @@ use App\Models\Product;
 |
 */
 
-Route::get('/products', function () {
-    return view('themes/templateproject/index');
+Route::get('/admin', function () {
+    return view('login');
 });
 
-// Route::get('products', [TemplatController::class, 'index']);
-// Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
-// Route::get('products/{slug}', [TemplatController::class, 'show']);
+Route::get('/', function () {
+    $products = Product::orderBy('created_at', 'DESC')->paginate(20);
+    $category = Category::all();
 
-Route::get('products1', [TampilanController::class, 'index']);
+    return view('index', compact('products', 'category'));
+});
+
+Route::get('products', [TemplatController::class, 'index']);
+Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
+Route::get('products/{slug}', [TemplatController::class, 'show']);
 // Route::get('categories/{id}', [TemplatController::class, 'kategori']);
 
 
 Route::group(
     ['middleware' => 'auth:sanctum', 'prefix' => 'admin'],
     function () {
-    
-    Route::resource('dashboard', DashboardController::class); 
-    Route::resource('category', CategoryController::class); 
-    Route::resource('products', ProductController::class); 
-    
-    Route::resource('profile', ProfileController::class); 
-    Route::GET('profile', [ProfileController::class, 'edit']); 
-    Route::PUT('profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::resource('roles', RoleController::class);
-    Route::resource('users', UserController::class);
+        Route::resource('dashboard', DashboardController::class);
+        Route::resource('category', CategoryController::class);
+        Route::resource('products', ProductController::class);
 
-});
+        Route::resource('profile', ProfileController::class);
+        Route::GET('profile', [ProfileController::class, 'edit']);
+        Route::PUT('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+        Route::resource('roles', RoleController::class);
+        Route::resource('users', UserController::class);
+    }
+);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $products = Product::orderBy('created_at', 'ASC')->latest()->paginate(3);

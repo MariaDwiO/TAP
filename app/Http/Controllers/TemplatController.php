@@ -31,7 +31,7 @@ class TemplatController extends Controller
 
         $this->data['products'] = $products->paginate(20);
         $this->data['category'] = Category::all();
-        return $this->load_Theme('index', $this->data);
+        return view('index', $this->data);
     }
 
     /**
