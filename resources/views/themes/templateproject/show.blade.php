@@ -63,25 +63,11 @@
                             Jurusan
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <?php
-                            //Membuat koneksi ke database akademik
-                            $kon = mysqli_connect("localhost",'root',"","taprakerin");
-                            if (!$kon){
-                                die("Koneksi database gagal:".mysqli_connect_error());
-                            }
-                                
-                            //Perintah sql untuk menampilkan semua data pada tabel jurusan
-                                $sql="select * from categories";
+                            @foreach ($category as $item)
 
-                                $hasil=mysqli_query($kon,$sql);
-                                $no=0;
-                                while ($data = mysqli_fetch_array($hasil)) {
-                                $no++;
-                            ?>
-                                <li> <a class="dropdown-item" href="#" value="<?php echo $data['id'];?>"><?php echo $data['name'];?></a></li>
-                            <?php 
-                                }
-                            ?>
+                            <li><a class="dropdown-item" href="{{ route('product-category.category', $item->slug) }}">{{ $item->name}}</a></li>
+
+                            @endforeach
                         </ul>
                     </li>
 
@@ -113,7 +99,7 @@
                             <h3 class="f-bold">Harga : {{ $products->price }}</h3>
                             <hr>
                             <p>Nama Pembuat : {{ $products->name_siswa }}</p>
-                            <p>Jurusan : Keramik</p>
+                            <p>Jurusan :{{ $products->kategori }}</p>
                             <p>Lama Pengerjaan : {{ $products->pengerjaan }}</p>
                             <hr>
                             <p class="f-bold">Deskripsi : <p>{!! $products->description !!}</p>

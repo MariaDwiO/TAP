@@ -64,27 +64,11 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach ($category as $item)
 
-                            <?php
-                            //Membuat koneksi ke database akademik
-                            $kon = mysqli_connect("localhost",'root',"","taprakerin");
-                            if (!$kon){
-                                die("Koneksi database gagal:".mysqli_connect_error());
-                            }
-                                
-                            //Perintah sql untuk menampilkan semua data pada tabel jurusan
-                                $sql="select * from categories";
+                            <li><a class="dropdown-item" href="{{ route('product-category.category', $item->slug) }}">{{ $item->name}}</a></li>
 
-                                $hasil=mysqli_query($kon,$sql);
-                                $no=0;
-                                while ($data = mysqli_fetch_array($hasil)) {
-                                $no++;
-                            ?>
-                                <li> <a class="dropdown-item" href="{{ route('product-category.category', $data['name']) }}" value="<?php echo $data['id'];?>"><?php echo $data['name'];?></a></li>
-                            <?php 
-                                }
-                            ?>
-
+                            @endforeach
                         </ul>
                     </li>
                     
@@ -120,7 +104,8 @@
                 <div class="card p-3">
                     <div class="inner">
                         <a href="{{ url('products/'. $produk->slug) }}">
-                            <img class="img-fluid" src="{{ $produk->image }}" alt=""></a>
+                            <img class="img-fluid" src="{{ $produk->image }}" alt="">
+                        </a>
                     </div>
                     <div class="container">
                         <hr>
@@ -133,9 +118,7 @@
             </div>
 
                 @empty
-                    <tr>
-                        <center><p>Mohon maaf produk tidak ada<p></center>
-                    </tr>
+                <p class="mb-5">Mohon maaf produk tidak ada<p>
 
             @endforelse
 
@@ -151,24 +134,31 @@
                 <h1 class="f-bold">REKOMENDASI</h1>
                 <hr class="mb-40">
             </div>
-            @forelse ($pro as $item)
-                
+
+            @forelse ($product as $pro)
+
             <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
                 <div class="card shadow">
-                    <div class="inner" style="text-align: center; overflow:hidden; padding:0;">
-                        <a href="#"><img style="border-radius: 30px; max-height: 200px;" class="img-fluid mb-60 p-3"
-                                src="{{ $item->image }}" alt=""></a>
+                    <div class="inner">
+                        <a href="{{ url('products/'. $pro->slug) }}">
+                            <img class="img-fluid" src="{{ $pro->image }}" alt="">
+                        </a>
                     </div>
                     <div class="container">
                         <hr>
                     </div>
-                    <a class="produk" href="{{ url('products/'. $produk->slug) }}">
-                        <h2>{{ $item->name }}</h2>
+                    <a class="produk" href="{{ url('products/'. $pro->slug) }}">
+                        <h3>{{ $pro->name }}</h3>
                     </a>
-                    <p class="fs-18">{{ $item->price }}</p>
+                    <p>{{ $pro->price }}</p>
                 </div>
             </div>
-                
+            
+            @empty
+                <tr>
+                    <center><p>Mohon maaf produk tidak ada<p></center>
+                </tr>
+
             @endforelse
 
         </div>

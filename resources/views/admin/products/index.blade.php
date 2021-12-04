@@ -17,6 +17,12 @@
 			        
                     @include('admin.partials.flash')
 
+                    @can('add_products')
+                    {{-- button add untuk menambah product --}}
+                    <a href="{{url ('admin/products/create') }}" class="btn btn-primary mb-3">Add new</a>
+                    @endcan
+
+
                     <div class="table-responsive">
                         <table class="table table-striped">
                             
@@ -68,13 +74,6 @@
                         <br>
                         {{ $products->links('vendor.pagination.custom')}}
                     </div>
-
-                    @can('add_products')
-                    {{-- button add untuk menambah product --}}
-                        <div class="card-footer text-right">
-                            <a href="{{url ('admin/products/create') }}" class="btn btn-primary">Add new</a>
-                        </div>
-                    @endcan
 
                 </div>
             </div>            

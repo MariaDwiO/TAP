@@ -116,31 +116,32 @@
                 <h1 class="f-bold">Kategori Karya</h1>
                 <hr>
             </div>
+                @foreach ($category as $item)
 
-                <div style="background-color:rgb(173, 155, 155);border-radius: 20px; padding: 5px;"
+                <div style="background-color:rgb(173, 155, 155);border-radius: 20px; padding: 5px; margin:10px;"
                     class="col-lg-5 shadow atas1">
-                    <a class="jur" href="#">
-                        <h1>Kayu</h1>
+                    <a class="jur" href="{{ route('product-category.category', $item->slug) }}">
+                        <h1>{{ $item->name}}</h1>
                     </a>
                 </div>
                 
-                <div style="background-color: rgb(233, 113, 137); border-radius: 20px; padding: 5px;"
+                {{-- <div style="background-color: rgb(233, 113, 137); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
-                    <a class="jur" href="#">
-                        <h1>Keramik</h1>
+                    <a class="jur" href="">
+                        <h1>Kriya Keramik</h1>
                     </a>
                 </div>
 
                 <div style="background-color:salmon;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
                     <a class="jur" href="#">
-                        <h1>Tekstil</h1>
+                        <h1>Kriya Tekstil</h1>
                     </a>
                 </div>
 
                 <div style="background-color: rgb(147, 236, 236); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
                     <a class="jur" href="#">
-                        <h1>Busana</h1>
+                        <h1>Tata Busana</h1>
                     </a>
                 </div>
 
@@ -160,15 +161,16 @@
                 <div style="background-color:rgb(140, 140, 255);border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow atas1">
                     <a class="jur" href="#">
-                        <h1>RPL</h1>
+                        <h1>Rekayasa Perangkat Lunak</h1>
                     </a>
                 </div>
 
                 <div style="background-color: coral; border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri">
                     <a class="jur" href="#">
-                        <h1>TKJ</h1>
+                        <h1>Teknik Komputer dan Jaringan</h1>
                     </a>
-                </div>
+                </div> --}}
+            @endforeach
 
         </div>
     </div>
@@ -318,21 +320,17 @@
     <div class="bg mt-100">
         <div class="container">
             <div class="row">
-
                 <div class="col-sm-12 col-lg-4 text-center mb-50">
                     <h3 id="contact" class="mb-20 f-white f-bold">Kontak Kami</h3>
                     <a href="https://web.whatsapp.com/"><img src="{{ asset('themes/templateproject/asset/image/whatsapp-logo-light-green-png-0.png')}}"
-                            width="64px" alt=""><span class="ml-20 nom"></span></a>
+                            width="64px" alt=""><span class="ml-20 nom">081235468975</span></a>
                 </div>
-
-
                 <div class="col-sm-12 col-lg-4 text-center mb-50">
                     <a class="mr-30" href=""><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/pp logo 1.png')}}" width="64px" height="64px"
                             alt=""></a>
                     <a href="https://www.smkn5malang.sch.id/"><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/smk.gif')}}" width="25%"
                             alt=""></a>
                 </div>
-
                 <div class="col-sm-12 col-lg-4 text-center">
                     <h3 class="mb-20 f-white">Unduh Aplikasi Di</h3>
                     <div class="row">
@@ -345,7 +343,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

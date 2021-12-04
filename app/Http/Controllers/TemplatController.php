@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Product;
-use App\Models\User;
-
 use Str;
 
 class TemplatController extends Controller
@@ -22,7 +20,6 @@ class TemplatController extends Controller
     {
 
         $products = Product::orderBy('created_at', 'DESC');
-        $pro = Product::latest()->random(3);
 
         $keyword = $request->q;
         // dd($keyword);
@@ -32,10 +29,8 @@ class TemplatController extends Controller
                 ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
         }
 
-        $this->data['products'] = $products->paginate(20);
-        $this->data['category'] = Category::all();
-        $this->data['products'] = $pro;
-
+        $this->data['products'] = $products->paginate(9);
+        $this->data['category'] = Category::orderBy('name', 'ASC')->get();
         return view('index', $this->data);
     }
 
@@ -69,8 +64,6 @@ class TemplatController extends Controller
     public function show($slug)
     {
         $this->data['products'] = Product::where('slug', $slug)->firstOrFail();
-
-        // $product = Product::latest();
 
         return $this->load_Theme('show', $this->data);
     }
@@ -111,14 +104,12 @@ class TemplatController extends Controller
 
     public function category($category)
     {
-        var_dump($category);
+        $this->data['products'] = Product::where('kategori', $category)->paginate(20);
+        // dd($data);
 
-        // // $this->data['category'] = $category->products()->get();
-        // $this->data['products'] = Product::orderBy('name', 'ASC')->get();
-        // $this->data['products'] = Product::orderBy('name', 'ASC')->get();
+        $this->data['product'] = Product::orderBy('created_at', 'DESC')->paginate(3);
+        $this->data['category'] = Category::orderBy('name', 'ASC')->get();
 
-
-        // $this->data['category'] = Category::find($id);
-        // return $this->load_Theme('category', $this->data);
+        return $this->load_Theme('category', $this->data);
     }
 }

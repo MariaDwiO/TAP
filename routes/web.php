@@ -12,7 +12,6 @@ use App\Http\Controllers\TampilanController;
 
 use App\Models\Product;
 use App\Models\Category;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +23,8 @@ use App\Models\Category;
 |
 */
 
-// Route::get('/admin', function () {
-//     return view('login');
+// Route::get('/', function () {
+//     return view('');
 // });
 
 Route::get('/', function () {
@@ -38,8 +37,6 @@ Route::get('/', function () {
 Route::get('products', [TemplatController::class, 'index']);
 Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
 Route::get('products/{slug}', [TemplatController::class, 'show']);
-// Route::get('categories/{id}', [TemplatController::class, 'kategori']);
-
 
 Route::group(
     ['middleware' => 'auth:sanctum', 'prefix' => 'admin'],
