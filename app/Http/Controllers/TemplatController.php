@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\User;
+
 use Str;
 
 class TemplatController extends Controller
@@ -20,6 +22,7 @@ class TemplatController extends Controller
     {
 
         $products = Product::orderBy('created_at', 'DESC');
+        $pro = Product::latest()->random(3);
 
         $keyword = $request->q;
         // dd($keyword);
@@ -31,6 +34,8 @@ class TemplatController extends Controller
 
         $this->data['products'] = $products->paginate(20);
         $this->data['category'] = Category::all();
+        $this->data['products'] = $pro;
+
         return view('index', $this->data);
     }
 

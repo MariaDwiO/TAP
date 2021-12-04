@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Product;
 use App\Models\Category;
+use App\Http\Requests\ProductRequest;
+// use Str;
 
 class ProductController extends Controller
 {
@@ -61,7 +63,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $pro = $request->except('_token');
+        // dd($pro);
+
+        $request->validate([
             'name_siswa' => 'required|max:255',
             'telephone' => 'required|max:12',
             'name' => 'required|max:255',
@@ -69,20 +74,53 @@ class ProductController extends Controller
             'pengerjaan' => 'required',
             'image' => 'required', 'file', 'image', 'mimes:jpeg,png,jpg', 'max:1024',
             'description' => 'required',
-            'kategori' => 'required',
+            'category_IDs' => 'required',
         ]);
+        //  return $request;
 
-        $itemuser = $request->user(); //ambil data user yang login
-        $slug = \Str::slug($request->name); //buat slug dari input slug produk
-        $inputan = $request->all();
-        $inputan['slug'] = $slug;
-        $inputan['user_id'] = $itemuser->id;
+        if ($request->file('image')) {
+            $img = $request->file('image');
+            $name = time() . '_' . $img->getClientOriginalExtension();
+            $file = 'product-images';
+            $filePath = $img->storeAs($file, $name, 'public');
+        }
 
-        Product::create($inputan);
-            
-        // Product::create($validatedata);
-    return redirect('admin/products');
-}
+        $id_category = $pro['category_IDs'];
+
+        $category = Category::findOrFail($id_category);
+        $kategory = $category->first()->slug;
+        // var_dump($kategory);
+
+        $product = ([
+            'name_siswa' => $pro['name_siswa'],
+            'telephone' => $pro['telephone'],
+            'name' => $pro['name'],
+            'slug' => \Str::slug($pro['name']),
+            'price' => $pro['price'],
+            'pengerjaan' => $pro['pengerjaan'],
+            'image' => $filePath,
+            'description' => $pro['description'],
+            'kategori' => $kategory,
+        ]);
+        // var_dump($product);
+
+
+        $save = false;
+        $save = DB::transaction(function () use ($product, $pro) {
+            $products = Product::create($product);
+            $products->categories()->sync($pro['category_IDs']);
+
+            return true;
+        });
+
+        if ($save) {
+            Session::flash('Success', 'Product has been create');
+        } else {
+            Session::flash('Error', 'Product could not be create!');
+        }
+
+        return redirect('admin/products')->with('Success', 'Product berhasil ditambahkan');
+    }
 
     /**
      * Display the specified resource.
@@ -122,10 +160,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         $params = $request->except('_token');
-        $params['slug'] = Str::slug($params['name']);
+        $img = $params['image'];
+        // var_dump ($img );
+
+        $this->data['slug'] = Str::slug($params['name']);
         // var_dump($params);
 
         $products = Product::findOrFail($id);
@@ -135,9 +176,28 @@ class ProductController extends Controller
         $this->data['categories'] = $categories->toArray();
         $this->data['categoryIDs'] = $products->categories->pluck('id')->toArray();
 
+        $id_category = $params['category_IDs'];
+        $gambar = $products->image;
+        $category = Category::findOrFail($id_category);
+        $kategory = $category->first()->slug;
+        // var_dump($kategory);
+
+        $product = ([
+            'name_siswa' => $params['name_siswa'],
+            'telephone' => $params['telephone'],
+            'name' => $params['name'],
+            'slug' => \Str::slug($params['name']),
+            'price' => $params['price'],
+            'pengerjaan' => $params['pengerjaan'],
+            'image' => $gambar,
+            'description' => $params['description'],
+            'kategori' => $kategory,
+        ]);
+
+
         $save = false;
-        $save = DB::transaction(function () use ($params, $products) {
-            $products->update($params);
+        $save = DB::transaction(function () use ($params, $products,  $product) {
+            $products->update($product);
             $products->categories()->sync($params['category_IDs']);
 
             return true;

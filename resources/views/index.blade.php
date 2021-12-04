@@ -318,17 +318,21 @@
     <div class="bg mt-100">
         <div class="container">
             <div class="row">
+
                 <div class="col-sm-12 col-lg-4 text-center mb-50">
                     <h3 id="contact" class="mb-20 f-white f-bold">Kontak Kami</h3>
                     <a href="https://web.whatsapp.com/"><img src="{{ asset('themes/templateproject/asset/image/whatsapp-logo-light-green-png-0.png')}}"
-                            width="64px" alt=""><span class="ml-20 nom">{{ Auth::user()->telephone }}</span></a>
+                            width="64px" alt=""><span class="ml-20 nom"></span></a>
                 </div>
+
+
                 <div class="col-sm-12 col-lg-4 text-center mb-50">
                     <a class="mr-30" href=""><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/pp logo 1.png')}}" width="64px" height="64px"
                             alt=""></a>
                     <a href="https://www.smkn5malang.sch.id/"><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/smk.gif')}}" width="25%"
                             alt=""></a>
                 </div>
+
                 <div class="col-sm-12 col-lg-4 text-center">
                     <h3 class="mb-20 f-white">Unduh Aplikasi Di</h3>
                     <div class="row">
@@ -341,6 +345,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

@@ -151,22 +151,26 @@
                 <h1 class="f-bold">REKOMENDASI</h1>
                 <hr class="mb-40">
             </div>
+            @forelse ($pro as $item)
+                
             <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
                 <div class="card shadow">
-                    <div class="inner">
-                        <a href="#"><img style="border-radius: 60px;" class="img-fluid mb-60 p-5" width="98%"
-                                src="image/vas.jpg" alt=""></a>
+                    <div class="inner" style="text-align: center; overflow:hidden; padding:0;">
+                        <a href="#"><img style="border-radius: 30px; max-height: 200px;" class="img-fluid mb-60 p-3"
+                                src="{{ $item->image }}" alt=""></a>
                     </div>
                     <div class="container">
                         <hr>
                     </div>
-                    <a class="produk" href="vas.html">
-                        <h2>Vas Bunga</h2>
+                    <a class="produk" href="{{ url('products/'. $produk->slug) }}">
+                        <h2>{{ $item->name }}</h2>
                     </a>
-                    <p class="fs-18">Harga: Rp 120.000</p>
+                    <p class="fs-18">{{ $item->price }}</p>
                 </div>
             </div>
-            
+                
+            @endforelse
+
         </div>
     </div>
 
