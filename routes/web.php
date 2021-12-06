@@ -28,7 +28,7 @@ use App\Models\Category;
 // });
 
 Route::get('/', function () {
-    $products = Product::orderBy('created_at', 'DESC')->paginate(20);
+    $products = Product::orderBy('created_at', 'DESC')->paginate(9);
     $category = Category::all();
 
     return view('index', compact('products', 'category'));

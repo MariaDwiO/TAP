@@ -64,6 +64,7 @@ class TemplatController extends Controller
     public function show($slug)
     {
         $this->data['products'] = Product::where('slug', $slug)->firstOrFail();
+        $this->data['category'] = Category::orderBy('name', 'ASC')->get();
 
         return $this->load_Theme('show', $this->data);
     }
@@ -104,12 +105,14 @@ class TemplatController extends Controller
 
     public function category($category)
     {
-        $this->data['products'] = Product::where('kategori', $category)->paginate(20);
-        // dd($data);
+
+        $this->data['products'] = Product::where('kategori', $category)->paginate(12);
+        $this->data['kategori'] = Category::where('slug', $category)->first();
+        // dd($this->data['kategori']);
 
         $this->data['product'] = Product::orderBy('created_at', 'DESC')->paginate(3);
         $this->data['category'] = Category::orderBy('name', 'ASC')->get();
 
-        return $this->load_Theme('category', $this->data);
+        return $this->load_Theme('category', $this->data, $category);
     }
 }

@@ -119,7 +119,7 @@ class ProductController extends Controller
             Session::flash('Error', 'Product could not be create!');
         }
 
-        return redirect('admin/products')->with('Success', 'Product berhasil ditambahkan');
+        return redirect('admin/products');
     }
 
     /**

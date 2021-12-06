@@ -99,7 +99,8 @@
                             <h3 class="f-bold">Harga : {{ $products->price }}</h3>
                             <hr>
                             <p>Nama Pembuat : {{ $products->name_siswa }}</p>
-                            <p>Jurusan :{{ $products->kategori }}</p>
+                            {{-- untuk menghilangkan karakter lain selain a-z atau A-Z --}}
+                            <p>Jurusan : {{ preg_replace("/[^a-zA-Z]/", " ", $products->kategori )}}</p>
                             <p>Lama Pengerjaan : {{ $products->pengerjaan }}</p>
                             <hr>
                             <p class="f-bold">Deskripsi : <p>{!! $products->description !!}</p>

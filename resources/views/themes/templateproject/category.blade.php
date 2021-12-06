@@ -87,7 +87,7 @@
     <div class="container mt-100">
         <div class="row">
             <div class="col-12 meja">
-                <h1 class="mb-30 f-bold">RPL</h1>
+                <h1 class="mb-30 f-bold">{{ $kategori->name }}</h1>
                 <hr>
             </div>
         </div>
@@ -104,14 +104,14 @@
                 <div class="card p-3">
                     <div class="inner">
                         <a href="{{ url('products/'. $produk->slug) }}">
-                            <img class="img-fluid" src="{{ $produk->image }}" alt="">
+                            <img class="img-fluid p-3" style="border-radius: 30px; max-height: 200px;" src="{{ asset('storage/' .$produk->image) }}" alt="">
                         </a>
                     </div>
                     <div class="container">
                         <hr>
                     </div>
                     <a class="produk" href="{{ url('products/'. $produk->slug) }}">
-                        <h3>{{ $produk->name }}</h3>
+                        <h3>{{ Str::limit($produk->name ,10) }}</h3>
                     </a>
                     <p>{{ $produk->price }}</p>
                 </div>
@@ -137,27 +137,26 @@
 
             @forelse ($product as $pro)
 
-            <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
-                <div class="card shadow">
-                    <div class="inner">
-                        <a href="{{ url('products/'. $pro->slug) }}">
-                            <img class="img-fluid" src="{{ $pro->image }}" alt="">
-                        </a>
+                    <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
+                        <div class="card shadow">
+                            <div class="inner" style="text-align: center; overflow:hidden; padding:0;">
+                                <a href="{{ url('products/'. $pro->slug) }}"><img style="border-radius: 30px; max-height: 200px;" class="img-fluid p-3"
+                                        src="{{asset('storage/' .$pro->image) }}" alt=""></a>
+                            </div>
+                            <div class="container">
+                                <hr>
+                            </div>
+                            <a class="produk" href="{{ url('products/'. $pro->slug) }}">
+                                <h2 class="">{{ Str::limit($pro->name ,10) }}</h2>
+                            </a>
+                            <p class="fs-18">{{ $pro->price}}</p>
+                        </div>
                     </div>
-                    <div class="container">
-                        <hr>
-                    </div>
-                    <a class="produk" href="{{ url('products/'. $pro->slug) }}">
-                        <h3>{{ $pro->name }}</h3>
-                    </a>
-                    <p>{{ $pro->price }}</p>
-                </div>
-            </div>
-            
-            @empty
-                <tr>
-                    <center><p>Mohon maaf produk tidak ada<p></center>
-                </tr>
+
+                @empty
+                    <tr>
+                        <center><p>Mohon maaf produk tidak ada<p></center>
+                    </tr>
 
             @endforelse
 
