@@ -120,68 +120,66 @@
 
                 <div style=" background-color:rgb(173, 155, 155);border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow atas1">
-                    <a class="jur" href="">
-                        <h1> kayu </h1>
+                    <a class="jur" href="http://taprakerin.test/product-category/kriya-kayu">
+                        <h1>kriya kayu</h1>
                     </a>
                 </div>
                 
                 <div style="background-color: rgb(233, 113, 137); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
-                    <a class="jur" href="">
+                    <a class="jur" href="http://taprakerin.test/product-category/kriya-keramik">
                         <h1>Kriya Keramik</h1>
                     </a>
                 </div>
 
                 <div style="background-color:salmon;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/kriya-tekstil">
                         <h1>Kriya Tekstil</h1>
                     </a>
                 </div>
 
                 <div style="background-color: rgb(147, 236, 236); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/tata-busana">
                         <h1>Tata Busana</h1>
                     </a>
                 </div>
 
                 <div style="background-color:yellow;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/animasi">
                         <h1>Animasi</h1>
                     </a>
                 </div>
 
                 <div style="background-color: rgb(185, 146, 223); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/multimedia">
                         <h1>Multimedia</h1>
                     </a>
                 </div>
 
                 <div style="background-color:rgb(140, 140, 255);border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow atas1">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/rekayasa-perangkat-lunak">
                         <h1>RPL</h1>
                     </a>
                 </div>
 
                 <div style="background-color: coral; border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/teknik-komputer-dan-jaringan">
                         <h1>TKJ</h1>
                     </a>
                 </div>
 
                 <div style="background-color:yellow;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
-                    <a class="jur" href="#">
+                    <a class="jur" href="http://taprakerin.test/product-category/animasi">
                         <h1>Animasi</h1>
                     </a>
                 </div>
 
-
-
-                <div style="background-color: coral; border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri ">
-                    <a class="jur" href="#">
-                        <h1>TKJ</h1>
+                <div style="background-color: rgb(58, 224, 80); border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri ">
+                    <a class="jur" href="http://taprakerin.test/product-category/permesinan">
+                        <h1>Permesinan</h1>
                     </a>
                 </div>
                 
@@ -226,7 +224,6 @@
                         </div>
                     </div>
 
-
                 @empty
                     <tr>
                         <center><p>Mohon maaf produk tidak ada<p></center>
@@ -247,41 +244,41 @@
                 <hr class="mb-30">
             </div>
             <div class="col-sm-6 col-lg-6">
-                <a href=#"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/meja.jpg')}}"
+                <a href="http://taprakerin.test/products/meja-dan-kursi"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/meja.jpg')}}"
                         width="100%" alt=""></a>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <a href="#"><img style="border-radius: 10px;" class="img-fluid mb-20" src="{{ asset('themes/templateproject/asset/image/batik 24.jpg')}}"
+                <a href="http://taprakerin.test/products/kain-batik"><img style="border-radius: 10px;" class="img-fluid mb-20" src="{{ asset('themes/templateproject/asset/image/batik 24.jpg')}}"
                         width="100%" alt=""></a>
                 <div class="row">
                     <div class="col-lg-6">
-                        <a href="#"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/totebag.jpg')}}"
+                        <a href="http://taprakerin.test/products/totebag"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/totebag.jpg')}}"
                                 width="100%" alt=""></a>
                     </div>
                     <div class="col-lg-6">
-                        <a href="#"><img style="border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/sweater.jpg')}}" width="100%"
+                        <a href="http://taprakerin.test/products/sweater"><img style="border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/sweater.jpg')}}" width="100%"
                                 alt=""></a>
                     </div>
                     <div class="col-sm-6 col-lg-12">
-                        <a href="#"><img style="border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
+                        <a href="http://taprakerin.test/products/vas-bunga"><img style="border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
                                 alt=""></a>
                     </div>
                     <div class="col-sm-6 col-lg-12">
-                        <a href="#"><img style="margin-top:20px; border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
+                        <a href="http://taprakerin.test/products/vas-bunga"><img style="margin-top:20px; border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
                                 alt=""></a>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <a href="game.html"><img style="border-radius: 10px;" class="mb-30" src="{{ asset('themes/templateproject/asset/image/game bagas.jpeg')}}"
+                <a href="http://taprakerin.test/products/game-2d-car"><img style="border-radius: 10px;" class="mb-30" src="{{ asset('themes/templateproject/asset/image/game bagas.jpeg')}}"
                         width="90%" alt=""></a>
                 <div class="row">
                     <div class="col-12">
-                        <a href="batik.html"><img style="border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
+                        <a href="http://taprakerin.test/products/batik-malang"><img style="border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
                                 alt=""></a>
                     </div>
                     <div class="col-12">
-                        <a href="batik.html"><img style="margin-top:20px; border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
+                        <a href="http://taprakerin.test/products/batik-malang"><img style="margin-top:20px; border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
                                 alt=""></a>
                     </div>
                 </div>
