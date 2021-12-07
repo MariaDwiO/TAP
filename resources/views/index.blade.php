@@ -96,12 +96,12 @@
             <div class="col-lg-12 mt-30">
                 <div class="slide">
                     <img style="cursor:pointer; border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/PRODUK.jpg')}}" alt="">
-                    <a href="#"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/lemari1.jpg')}}"
+                    <a href="http://taprakerin.test/products/lemari"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/lemari1.jpg')}}"
                             alt=""></a>
-                    <a href="#"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/meja1.jpg')}}" alt=""></a>
-                    <a href="#"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/Sweater1.jpg')}}"
+                    <a href="http://taprakerin.test/products/meja-dan-kursi"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/meja1.jpg')}}" alt=""></a>
+                    <a href="http://taprakerin.test/products/sweater"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/Sweater1.jpg')}}"
                             alt=""></a>
-                    <a href="#"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/Tote1.jpg ')}}" alt=""></a>
+                    <a href="http://taprakerin.test/products/totebag"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/Tote1.jpg ')}}" alt=""></a>
                 </div>
             </div>
         </div>
