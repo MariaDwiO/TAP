@@ -29,7 +29,7 @@ class TemplatController extends Controller
                 ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
         }
 
-        $this->data['products'] = $products->paginate(9);
+        $this->data['products'] = $products->paginate(20);
         $this->data['category'] = Category::orderBy('name', 'ASC')->get();
         return view('index', $this->data);
     }

@@ -116,16 +116,16 @@
                 <h1 class="f-bold">Kategori Karya</h1>
                 <hr>
             </div>
-                @foreach ($category as $item)
+                {{-- @foreach ($category as $item) --}}
 
-                <div style="background-color:rgb(173, 155, 155);border-radius: 20px; padding: 5px; margin:10px;"
+                <div style=" background-color:rgb(173, 155, 155);border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow atas1">
-                    <a class="jur" href="{{ route('product-category.category', $item->slug) }}">
-                        <h1>{{ $item->name}}</h1>
+                    <a class="jur" href="">
+                        <h1> kayu </h1>
                     </a>
                 </div>
                 
-                {{-- <div style="background-color: rgb(233, 113, 137); border-radius: 20px; padding: 5px;"
+                <div style="background-color: rgb(233, 113, 137); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
                     <a class="jur" href="">
                         <h1>Kriya Keramik</h1>
@@ -161,16 +161,31 @@
                 <div style="background-color:rgb(140, 140, 255);border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow atas1">
                     <a class="jur" href="#">
-                        <h1>Rekayasa Perangkat Lunak</h1>
+                        <h1>RPL</h1>
                     </a>
                 </div>
 
                 <div style="background-color: coral; border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri">
                     <a class="jur" href="#">
-                        <h1>Teknik Komputer dan Jaringan</h1>
+                        <h1>TKJ</h1>
                     </a>
-                </div> --}}
-            @endforeach
+                </div>
+
+                <div style="background-color:yellow;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
+                    <a class="jur" href="#">
+                        <h1>Animasi</h1>
+                    </a>
+                </div>
+
+
+
+                <div style="background-color: coral; border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri ">
+                    <a class="jur" href="#">
+                        <h1>TKJ</h1>
+                    </a>
+                </div>
+                
+            {{-- @endforeach --}}
 
         </div>
     </div>
@@ -228,7 +243,7 @@
     <div class="container bg1 mt-100 shadow-lg p-5">
         <div class="row">
             <div class="col-12">
-                <h1 class="f-bold">REKOMENDASI PRODUK</h1>
+                <h1 class="f-bold text-center">REKOMENDASI PRODUK</h1>
                 <hr class="mb-30">
             </div>
             <div class="col-sm-6 col-lg-6">
@@ -251,6 +266,10 @@
                         <a href="#"><img style="border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
                                 alt=""></a>
                     </div>
+                    <div class="col-sm-6 col-lg-12">
+                        <a href="#"><img style="margin-top:20px; border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
+                                alt=""></a>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
@@ -259,6 +278,10 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="batik.html"><img style="border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
+                                alt=""></a>
+                    </div>
+                    <div class="col-12">
+                        <a href="batik.html"><img style="margin-top:20px; border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
                                 alt=""></a>
                     </div>
                 </div>
@@ -331,17 +354,17 @@
                     <a href="https://www.smkn5malang.sch.id/"><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/smk.gif')}}" width="25%"
                             alt=""></a>
                 </div>
-                <div class="col-sm-12 col-lg-4 text-center">
+                <div class="col-sm-12 col-lg-4 justify-content-center">
                     <h3 class="mb-20 f-white">Unduh Aplikasi Di</h3>
-                    <div class="row">
+                    {{-- <div class="row"> --}}
                         <div class="col-sm-12 col-lg-6 app">
-                            <a href="https://play.google.com"><img class="mr-30" width="128px" src="{{ asset('themes/templateproject/asset/image/ps.svg')}}"
+                            <a href="https://play.google.com"><img class="" width="128px" src="{{ asset('themes/templateproject/asset/image/ps.svg')}}"
                                     alt=""></a>
                         </div>
                         <div class="col-sm-12 col-lg-6 ios">
                             <a href="https://www.apple.com"><img src="{{ asset('themes/templateproject/asset/image/ios.svg')}}" width="130px" alt=""></a>
                         </div>
-                    </div>
+                    {{-- </div> --}}
                 </div>
             </div>
         </div>
