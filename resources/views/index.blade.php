@@ -85,7 +85,7 @@
 
 
     <!-- Carousel -->
-    <div class="container shadow carou p-5">
+    <div class="container shadow carou">
         <div class="row">
             <div class="col-12">
                 <h1 class="f-white"
@@ -93,7 +93,7 @@
                     Produk
                 </h1>
             </div>
-            <div class="col-lg-12 mt-30">
+            <div class="col-lg-12 mt-10">
                 <div class="slide">
                     <img style="cursor:pointer; border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/PRODUK.jpg')}}" alt="">
                     <a href="http://taprakerin.test/products/lemari"><img style="border-radius: 10px;" class="img-fluid" src="{{ asset('themes/templateproject/asset/image/lemari1.jpg')}}"
@@ -344,16 +344,18 @@
                     <a href="https://www.smkn5malang.sch.id/"><img class="img-fluid" src="{{ asset('themes/templateproject/asset/image/smk.gif')}}" width="25%"
                             alt=""></a>
                 </div>
-                <div class="col-sm-12 col-lg-4 justify-content-center">
+                <div class="col-sm-12 col-lg-4 text-center">
                     <h3 class="mb-20 f-white">Unduh Aplikasi Di</h3>
                     <div class="row">
-                        <div class="col-sm-12 col-lg-5 app">
+                        <div class="col-sm-6 col-md-6 col-lg-6 app mb-10">
                             <a href="https://play.google.com"><img class="" width="128px" src="{{ asset('themes/templateproject/asset/image/ps.svg')}}"
                                     alt=""></a>
                         </div>
-                        <div class="col-sm-12 col-lg-5 ios">
+
+                        <div class="col-sm-6 col-md-6 col-lg-6 ios">
                             <a href="https://www.apple.com"><img src="{{ asset('themes/templateproject/asset/image/ios.svg')}}" width="130px" alt=""></a>
                         </div>
+
                     </div>
                 </div>
             </div>
