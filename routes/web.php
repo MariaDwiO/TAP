@@ -29,13 +29,14 @@ use App\Models\Category;
 
 // Route::get('/', function () {
 //     $products = Product::orderBy('created_at', 'DESC')->get();
-//     $category = Category::orderBy('name', 'ASC')->get();
+//     $category = Category::all();
 
 //     return view('index', compact('products', 'category'));
 // });
 
 Route::get('/', [TemplatController::class, 'index']);
 Route::get('products', [TemplatController::class, 'index']);
+Route::get('search', [TemplatController::class, 'search']);
 Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
 Route::get('products/{slug}', [TemplatController::class, 'show']);
 

@@ -16,21 +16,11 @@ class TemplatController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(Request $request)
+    public function index()
     {
-
-        $products = Product::orderBy('created_at', 'DESC');
-
-        $keyword = $request->q;
-        // dd($keyword);
-
-        if (request('q')) {
-            $products = $products->where('name', 'like', '%' . $keyword . '%')
-                ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
-        }
-
-        $this->data['products'] = $products->get();
+        $this->data['products'] = Product::orderBy('created_at', 'DESC')->get();
         $this->data['category'] = Category::orderBy('name', 'ASC')->get();
+
         return view('index', $this->data);
     }
 
@@ -111,24 +101,27 @@ class TemplatController extends Controller
         // dd($this->data['kategori']);
 
         $this->data['product'] = Product::orderBy('created_at', 'DESC')->paginate(3);
-        $this->data['category'] = Category::orderBy('name', 'DESC')->get();
+        $this->data['category'] = Category::orderBy('name', 'ASC')->get();
 
         return $this->load_Theme('category', $this->data, $category);
     }
 
-    // public function search (request $request)
-    // {
-    //     $products = Product::orderBy('created_at', 'DESC');
+    public function search (request $request)
+    {
+        // dd($request);
+        $products = Product::orderBy('created_at', 'DESC');
 
-    //     $keyword = $request->q;
-    //     // dd($keyword);
+        $keyword = $request->q;
+        // dd($keyword);
 
-    //     if (request('q')) {
-    //         $products = $products->where('name', 'like', '%' . $keyword . '%')
-    //             ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
-    //     }
+        if (request('q')) {
+            $products = $products->where('name', 'like', '%' . $keyword . '%')
+                ->orwhere('name_siswa', 'like', '%' . $keyword . '%');
+        }
 
-    //     $this->data['products'] = $products->get();
+        $this->data['products'] = $products->get();
+        $this->data['category'] = Category::orderBy('name', 'ASC')->get();
 
-    // }
+        return $this->load_Theme('search', $this->data);
+    }
 }

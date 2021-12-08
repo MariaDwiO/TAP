@@ -82,6 +82,18 @@
     </nav>
     <!-- Navbar Penutup -->
 
+    <!-- Judul -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 style="font-weight: bold; margin-top: 100px;">PRODUK YANG ANDA CARI</h1>
+                <hr class="mt-30">
+            </div>
+        </div>
+    </div>
+    <!-- Judul Penutup -->
+
+
     <!-- Card -->
     <div class="container atas">
         <div class="row">

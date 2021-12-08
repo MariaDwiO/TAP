@@ -38,9 +38,9 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="form-inline my-2 my-lg-0 logo12">
+                <form class="form-inline my-2 my-lg-0 logo12" action="{{ url('search') }}" method="GET">
                     <input style="width: 500px;" class=" form-control mr-sm-2" type="search" placeholder="Cari Produk"
-                        aria-label="Search">
+                        aria-label="Search" name="q" value="{{ isset($q) ? $q : null }}">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cari</button>
                 </form>
                 
@@ -65,7 +65,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ($category as $item)
 
-                            <li><a class="dropdown-item" href="{{ route('product-category.category', $item->slug) }}">{{ $item->name}}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('product-category.category', $item->slug) }}">
+                                {{ $item->name}}</a></li>
 
                             @endforeach
                         </ul>
@@ -82,42 +83,47 @@
     </nav>
     <!-- Navbar Penutup -->
 
-    <!-- Card -->
-    <div class="container atas">
+    <!-- Judul -->
+    <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="row">
-                        <div class="col-sm-12 col-lg-6 p-5 meja">
-                            <div class="inne">
-                                <h3 class="text-center f-bold rapi">Nama Barang : {{ $products->name }}</h3>
-                                <hr>
-                                <img class="img-fluid " src="{{ asset('storage/' .$products->image) }}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-6 p-5 meja brd">
-                            <h3 class="f-bold">Harga : {{ $products->price }}</h3>
-                            <hr>
-                            <p>Nama Pembuat : {{ $products->name_siswa }}</p>
-                            {{-- untuk menghilangkan karakter lain selain a-z atau A-Z --}}
-                            <p>Jurusan : {{ preg_replace("/[^a-zA-Z]/", " ", $products->kategori )}}</p>
-                            <p>Lama Pengerjaan : {{ $products->pengerjaan }}</p>
-                            <hr>
-                            <p class="f-bold">Deskripsi : <p>{!! $products->description !!}</p>
-                            </p>
+            <div class="col">
+                <h1 style="font-weight: bold; margin-top: 100px;">PRODUK YANG ANDA CARI</h1>
+                <hr class="mt-30">
+            </div>
+        </div>
+    </div>
+    <!-- Judul Penutup -->
 
-                            <a href="{{ url('products') }}">
-                                <p class="fs-18 back"><svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px"
-                                    fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
-                                </svg>Kembali</p>
-                            </a>
+
+    <!-- Card -->
+    <div class="container mt-30">
+        <div class="row">
+
+            @forelse ($products as $produk)
                             
-                        </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 text-center mb-80">
+                <div class="card p-3">
+                    <div class="inner" style="text-align: center; overflow:hidden; padding:0;">
+                        <a href="{{ url('products/'. $produk->slug) }}"><img style="border-radius: 30px; max-height: 200px;" class="img-fluid p-3" src="{{ $produk->image}}" alt=""></a>
                     </div>
+
+                    <div class="container">
+                        <hr>
+                    </div>
+
+                    <a class="produk" href="{{ url('products/'. $produk->slug) }}">
+                        <h2 class="">{{ Str::limit($produk->name ,10) }}</h2>
+                    </a>
+                    <p class="fs-18">{{ $produk->price}}</p>
+
                 </div>
             </div>
+                    
+            @empty
+                <center>Mohon Maaf Produk Tidak Ada</center>
+
+            @endforelse
+
         </div>
     </div>
 
