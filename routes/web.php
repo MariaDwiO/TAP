@@ -27,13 +27,14 @@ use App\Models\Category;
 //     return view('');
 // });
 
-Route::get('/', function () {
-    $products = Product::orderBy('created_at', 'DESC')->paginate(20);
-    $category = Category::all();
+// Route::get('/', function () {
+//     $products = Product::orderBy('created_at', 'DESC')->get();
+//     $category = Category::orderBy('name', 'ASC')->get();
 
-    return view('index', compact('products', 'category'));
-});
+//     return view('index', compact('products', 'category'));
+// });
 
+Route::get('/', [TemplatController::class, 'index']);
 Route::get('products', [TemplatController::class, 'index']);
 Route::get('product-category/{category}', [TemplatController::class, 'category'])->name('product-category.category');
 Route::get('products/{slug}', [TemplatController::class, 'show']);

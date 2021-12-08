@@ -116,23 +116,24 @@
                 <h1 class="f-bold">Kategori Karya</h1>
                 <hr>
             </div>
-                {{-- @foreach ($category as $item) --}}
 
-                <div style=" background-color:rgb(173, 155, 155);border-radius: 20px; padding: 5px;"
-                    class="col-lg-5 shadow atas1">
-                    <a class="jur" href="http://taprakerin.test/product-category/kriya-kayu">
-                        <h1>kriya kayu</h1>
+                @foreach ($category as $item)
+
+                <div style=" background-color:#343A40;border-radius: 20px; padding: 10px; margin-right:90px;"
+                    class="col-lg-5 shadow atas1 kanan">
+                    <a class="jur" href="{{ route('product-category.category', $item->slug) }}">
+                        <h1 class="f-white">{{ $item->name }}</h1>
                     </a>
                 </div>
                 
-                <div style="background-color: rgb(233, 113, 137); border-radius: 20px; padding: 5px;"
+                {{-- <div style="background-color: rgb(255, 111, 140); border-radius: 20px; padding: 5px;"
                     class="col-lg-5 shadow kiri">
                     <a class="jur" href="http://taprakerin.test/product-category/kriya-keramik">
                         <h1>Kriya Keramik</h1>
                     </a>
                 </div>
 
-                <div style="background-color:salmon;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
+                <div style="background-color:rgb(252, 114, 98);border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
                     <a class="jur" href="http://taprakerin.test/product-category/kriya-tekstil">
                         <h1>Kriya Tekstil</h1>
                     </a>
@@ -171,19 +172,19 @@
                     </a>
                 </div>
 
-                <div style="background-color:yellow;border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
+                <div style="background-color:rgb(250, 250, 250);border-radius: 20px; padding: 5px;" class="col-lg-5 shadow atas1">
                     <a class="jur" href="http://taprakerin.test/product-category/animasi">
-                        <h1>Animasi</h1>
+                        <h1>Alat Berat</h1>
                     </a>
                 </div>
 
-                <div style="background-color: rgb(58, 224, 80); border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri ">
+                <div style="background-color: rgb(92, 255, 113); border-radius: 20px; padding: 5px;" class="col-lg-5 shadow kiri ">
                     <a class="jur" href="http://taprakerin.test/product-category/permesinan">
                         <h1>Permesinan</h1>
                     </a>
-                </div>
+                </div> --}}
                 
-            {{-- @endforeach --}}
+            @endforeach
 
         </div>
     </div>
@@ -263,10 +264,6 @@
                         <a href="http://taprakerin.test/products/vas-bunga"><img style="border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
                                 alt=""></a>
                     </div>
-                    <div class="col-sm-6 col-lg-12">
-                        <a href="http://taprakerin.test/products/vas-bunga"><img style="margin-top:20px; border-radius: 10px;" class=" img-fluid" src="{{ asset('themes/templateproject/asset/image/vas.jpg')}}"
-                                alt=""></a>
-                    </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
@@ -275,10 +272,6 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="http://taprakerin.test/products/batik-malang"><img style="border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
-                                alt=""></a>
-                    </div>
-                    <div class="col-12">
-                        <a href="http://taprakerin.test/products/batik-malang"><img style="margin-top:20px; border-radius: 10px;" src="{{ asset('themes/templateproject/asset/image/batik23.jpeg')}}" width="90%"
                                 alt=""></a>
                     </div>
                 </div>
@@ -353,15 +346,15 @@
                 </div>
                 <div class="col-sm-12 col-lg-4 justify-content-center">
                     <h3 class="mb-20 f-white">Unduh Aplikasi Di</h3>
-                    {{-- <div class="row"> --}}
-                        <div class="col-sm-12 col-lg-6 app">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-5 app">
                             <a href="https://play.google.com"><img class="" width="128px" src="{{ asset('themes/templateproject/asset/image/ps.svg')}}"
                                     alt=""></a>
                         </div>
-                        <div class="col-sm-12 col-lg-6 ios">
+                        <div class="col-sm-12 col-lg-5 ios">
                             <a href="https://www.apple.com"><img src="{{ asset('themes/templateproject/asset/image/ios.svg')}}" width="130px" alt=""></a>
                         </div>
-                    {{-- </div> --}}
+                    </div>
                 </div>
             </div>
         </div>

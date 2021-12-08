@@ -16,9 +16,20 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $this->data['category'] = Category::orderBy('name', 'ASC')->paginate(5);
+        $category = Category::orderBy('name', 'ASC');
+
+        $keyword = $request->search;
+        // dd($keyword);
+
+        if (request('search')) {
+            $category = $category->where('name', 'like', '%' . $keyword . '%')
+                ->orwhere('slug', 'like', '%' . $keyword . '%');
+        }
+
+        $this->data['category'] = $category->paginate(5);
+
         return view('admin.category.index', $this->data);
     }
 
@@ -41,11 +52,11 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $params = $request->except('_token');
-        $params['slug'] = Str::slug($params['name']);
+        $params['slug'] = Str::slug($params['slug']);
         $params['parent_id'] = 0;
 
-        if(Category::create($params)){
-        Session::flash('Success','Category Jurusan has been saved');
+        if (Category::create($params)) {
+            Session::flash('Success', 'Category Jurusan has been saved');
         }
 
         return redirect('admin/category');
@@ -68,8 +79,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
-    {   
+    public function edit($id)
+    {
         $category = Category::findorfail($id);
         $this->data['category'] = $category;
 
@@ -86,7 +97,7 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, $id)
     {
         $params = $request->except('_token');
-        $params['slug'] = Str::slug($params['name']);
+        $params['slug'] = Str::slug($params['slug']);
         $params['parent_id'] = 0;
         $category = Category::findOrFail($id);
 
@@ -111,6 +122,5 @@ class CategoryController extends Controller
             Session::flash('success', 'Category Jurusan has been deleted');
         }
         return redirect('admin/category');
-
     }
 }

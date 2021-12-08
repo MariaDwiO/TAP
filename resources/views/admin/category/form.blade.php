@@ -28,9 +28,13 @@
                             {!! Form::label('name', 'Name Jurusan Product') !!}
                             {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Enter Your Name Jurusan']) !!}   
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('slug', 'Name Slug Jurusan Product') !!}
+                            {!! Form::text('slug', null, ['class'=>'form-control', 'placeholder'=>'Enter Your Slug Jurusan']) !!}   
+                        </div>
 
                         {{-- button untuk save product dan kembali ke table --}}
-                        <div class="form-group">
+                        <div class="form-group mt-5">
                             <a type="button" href="{{ url('admin/category')}}" class="btn btn-light px-5 mt-auto"><i class="zmdi zmdi-arrow-left"></i> Back</a>
                             <button type="submit" class="btn btn-light px-5 mt-auto"><i class="zmdi zmdi-file"></i> Save</button>
                         </div>

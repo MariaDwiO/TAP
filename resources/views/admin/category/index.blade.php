@@ -5,15 +5,24 @@
     <div class="row">
         <div class="col-lg-11">
 
-            <br><br>
+            {!! Form::open(['url' => Request::path(), 'method'=> 'GET', 'class'=> 'input-grup'] ) !!}
+                <div class="md-3 m-sm-3"> 
+                    <input type="text" class="form-control" id='search' name="search" value="{{ request('search') }}" placeholder="Enter keywords">
+                </div>
+            {!! Form::close() !!}
 
             <div class="card">
                 <div class="card-body">
                     
                     <h5 class="card-title text-center">Category Jurusan</h5>
+                    @include('admin.partials.flash')
+
+                    @can('add_categories')
+                    {{-- button add untuk menambah product --}}
+                        <a href="{{url ('admin/category/create') }}" class="btn btn-primary mb-3">Add new</a>
+                    @endcan
+
 			        <div class="table-responsive">
-                        @include('admin.partials.flash')
-                        
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -61,13 +70,6 @@
                         <br>
                         {{ $category->links('vendor.pagination.custom')}}
                     </div>
-
-                    @can('add_categories')
-                    {{-- button add untuk menambah product --}}
-                        <div class="card-footer text-right">
-                            <a href="{{url ('admin/category/create') }}" class="btn btn-primary">Add new</a>
-                        </div>
-                    @endcan
 
                 </div>
             </div>
