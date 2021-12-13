@@ -37,12 +37,12 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="form-inline my-2 my-lg-0 logo12" action="{{ url('products') }}" method="GET">
+                <form class="form-inline my-2 my-lg-0 logo12" action="{{ url('search') }}" method="GET">
                     <input style="width: 500px;" class=" form-control mr-sm-2" type="search" placeholder="Cari Produk"
                         aria-label="Search" name="q" value="{{ isset($q) ? $q : null }}">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cari</button>
                 </form>
-
+                
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li>
                         <a href="{{ url('products') }}">

@@ -38,9 +38,9 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="form-inline my-2 my-lg-0 logo12">
+                <form class="form-inline my-2 my-lg-0 logo12" action="{{ url('search') }}" method="GET">
                     <input style="width: 500px;" class=" form-control mr-sm-2" type="search" placeholder="Cari Produk"
-                        aria-label="Search">
+                        aria-label="Search" name="q" value="{{ isset($q) ? $q : null }}">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Cari</button>
                 </form>
                 
@@ -86,8 +86,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 style="font-weight: bold; margin-top: 100px;">PRODUK YANG ANDA CARI</h1>
-                <hr class="mt-30">
+                <h1 style="font-weight: bold; margin-top: 100px;">DETAIL PRODUK</h1>
+                <hr class="mt-10">
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@
 
 
     <!-- Card -->
-    <div class="container atas">
+    <div class="container mt-30">
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -104,7 +104,7 @@
                             <div class="inne">
                                 <h3 class="text-center f-bold rapi">Nama Barang : {{ $products->name }}</h3>
                                 <hr>
-                                <img class="img-fluid " src="{{ asset('storage/' .$products->image) }}" alt="">
+                                <img class="img-fluid " src="{{ asset('storage/' .$products->image) }}" style="max-height: 500px; max-width: 500px;" alt="">
                             </div>
                         </div>
                         <div class="col-sm-12 col-lg-6 p-5 meja brd">
